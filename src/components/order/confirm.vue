@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    订单确认1111
+    订单确认
   </div>
 </template>
 

@@ -1,16 +1,21 @@
 <template>
   <div class="hello">
     首页
+  <tab></tab>
   </div>
 </template>
 
 <script>
+import Tab from '@/components/tab/tab'
 export default {
   name: 'HelloWorld',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+  components: {
+    Tab
   }
 }
 </script>

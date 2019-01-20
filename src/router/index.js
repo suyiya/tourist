@@ -40,19 +40,19 @@ export default new Router({
       component: OrderDetail
     },
     {
-      path: 'orderConfirm',
+      path: '/orderConfirm',
       component: OrderConfirm
     },
     {
-      path: 'productList',
+      path: '/productList',
       component: ProductList
     },
     {
-      path: 'productDetail',
+      path: '/productDetail',
       component: ProductDetail
     },
     {
-      path: 'productPackage',
+      path: '/productPackage',
       component: ProductPackage
     }
   ]
