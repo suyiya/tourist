@@ -5,7 +5,7 @@
         <span class="tab-link">首页</span>
       </router-link>
       <router-link tag="div" class="tab-item" to="/message">
-        <span class="tab-link">歌手</span>
+        <span class="tab-link">消息</span>
       </router-link>
       <router-link tag="div" class="tab-item" to="/user">
         <span class="tab-link">我的</span>
