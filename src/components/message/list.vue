@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    消息列表
+    消息列表{{this.$route.params.index}}
   </div>
 </template>
 
@@ -11,6 +11,9 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+  created() {
+    console.log(this.$route)
   }
 }
 </script>

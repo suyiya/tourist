@@ -1,5 +1,23 @@
 <template>
-  <div class="hello">消息
+  <div class="mt10">
+    <div class="m-item" @click="goToDetail(0)">
+      <div class="m-item-left"></div>
+      <div class="m-item-right">
+        订单消息
+      </div>
+    </div>
+    <div class="m-item" @click="goToDetail(1)">
+      <div class="m-item-left"></div>
+      <div class="m-item-right">
+        系统消息
+      </div>
+    </div>
+    <div class="m-item" @click="goToDetail(2)">
+      <div class="m-item-left"></div>
+      <div class="m-item-right">
+        活动消息
+      </div>
+    </div>
     <tab></tab>
   </div>
 </template>
@@ -13,27 +31,37 @@ export default {
       msg: "Welcome to Your Vue.js App"
     };
   },
+  created() {
+    console.log('created')
+  },
   components: {
     Tab
+  },
+  methods: {
+    goToDetail(index) {
+      console.log(index)
+      this.$router.push({
+        path: "/messageList",
+        query: { index: index }
+      });
+    }
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1,
-h2 {
-  font-weight: normal;
+.m-item {
+  display: flex;
+  height: 80px;
+  width: 100%;
+  background-color: #ffffff;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.m-item-left {
+  width: 78px;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.m-item-right {
+  width: 100%;
+  border-bottom: 1px solid #e1e6e8;
 }
 </style>
