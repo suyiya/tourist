@@ -11,6 +11,7 @@ import ProductList from '@/components/product/list'
 import ProductDetail from '@/components/product/detail'
 import ProductPackage from '@/components/product/package'
 import CommentList from '@/components/comment/list'
+import Comment from '@/components/comment/comment'
 
 Vue.use(Router)
 
@@ -59,6 +60,10 @@ export default new Router({
     {
       path: '/commentList',
       component: CommentList
+    },
+    {
+      path: '/comment',
+      component: Comment
     }
   ]
 })

@@ -26,6 +26,9 @@ body {
 .mt10 {
   margin-top: 10px;
 }
+.pd16{
+  padding: 16px;
+}
 p {
   padding: 0;
   margin: 0;
