@@ -30,4 +30,17 @@ p {
   padding: 0;
   margin: 0;
 }
+.bg-green {
+  background-color: #00d16b;
+}
+.c-green {
+  color: #00d16b;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+}
 </style>

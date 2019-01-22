@@ -1,36 +1,42 @@
 <template>
   <div>
-    <p>产品信息</p>
+    <p class="text3">产品信息</p>
     <div class="product-info">
-      <div></div>
-      <div>
-        <p>泰国清迈高尔夫之旅3天2晚1球半日观光</p>
-        <p>套餐类型：绿谷球场+大岛球场，入住慧兰娜</p>
-        <p>意向日期: 2019-01-18</p>
-        <p>购买数量: 成人x1</p>
+      <div class="product-left">
+        <img style="width:54px;height:54px;background:green">
+      </div>
+      <div class="product-right">
+        <p class="text5">泰国清迈高尔夫之旅3天2晚1球半日观光</p>
+        <p class="text4">套餐类型：绿谷球场+大岛球场，入住慧兰娜</p>
+        <p class="text4">意向日期: 2019-01-18</p>
+        <p class="text4">购买数量: 成人x1</p>
       </div>
     </div>
-    <p>预订人信息</p>
+    <p class="text3">预订人信息</p>
     <div class="cus-info">
-      <div>
-        姓名
+      <div class="cus-left">
+        <p>姓名</p>
         <input placeholder="**文（请输入完整姓名）">
       </div>
-      <div>
-        手机号
+      <div class="bor-bottom"></div>
+      <div class="cus-left">
+        <p>手机号</p>
         <input placeholder="请输入手机号">
       </div>
-      <div>
-        邮箱
+      <div class="bor-bottom"></div>
+      <div class="cus-left">
+        <p>邮箱</p>
         <input placeholder="请输入邮箱">
       </div>
     </div>
-    <div class="submit-bar">
-      <div>
-        <p>总价</p>
-        <p>￥2048</p>
+    <div class="footer">
+      <div class="submit-bar">
+        <div class="submit-price">
+          <p class="text1">总价</p>
+          <p class="c-green text2">￥2048</p>
+        </div>
+        <div class="bg-green submit-btn" @click="submit()">提交订单</div>
       </div>
-      <div>提交订单</div>
     </div>
   </div>
 </template>
@@ -42,6 +48,11 @@ export default {
     return {
       msg: "Welcome to Your Vue.js App"
     };
+  },
+  methods: {
+    submit() {
+      console.log("submig");
+    }
   }
 };
 </script>
@@ -53,14 +64,75 @@ export default {
   display: flex;
   padding: 16px;
 }
+.product-left {
+  width: 66px;
+}
+.product-right {
+  flex: 1;
+}
 .cus-info {
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
-  padding: 10px 16px;
+  padding: 10px 0 0 16px;
 }
 .submit-bar {
   display: flex;
   width: 100%;
+  height: 49px;
+  background-color: #ffffff;
+}
+.submit-price {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 4px 16px;
+}
+.text1 {
+  color: #383838;
+  font-size: 12px;
+}
+.text2 {
+  font-size: 20px;
+}
+.text3 {
+  color: #383838;
+  font-size: 14px;
+  margin-top: 16px;
+  margin-left: 15px;
+  margin-bottom: 8px;
+}
+.text4 {
+  color: #808080;
+  font-size: 12px;
+}
+.text5 {
+  color: #383838;
+  font-size: 14px;
+}
+.submit-btn {
+  color: #ffffff;
+  font-size: 18px;
+  width: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cus-left {
+  display: flex;
+  height: 44px;
+}
+.cus-left p {
+  width: 90px;
+  display: flex;
+  align-items: center;
+}
+.cus-left input {
+  flex: 1;
+}
+.bor-bottom {
+  height: 1px;
+  widows: 100%;
+  border-bottom: 1px solid #e5e5e5;
 }
 </style>

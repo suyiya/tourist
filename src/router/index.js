@@ -10,6 +10,7 @@ import OrderConfirm from '@/components/order/confirm'
 import ProductList from '@/components/product/list'
 import ProductDetail from '@/components/product/detail'
 import ProductPackage from '@/components/product/package'
+import CommentList from '@/components/comment/list'
 
 Vue.use(Router)
 
@@ -54,6 +55,10 @@ export default new Router({
     {
       path: '/productPackage',
       component: ProductPackage
+    },
+    {
+      path: '/commentList',
+      component: CommentList
     }
   ]
 })

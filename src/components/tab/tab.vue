@@ -19,12 +19,6 @@ export default {};
 </script>
 
 <style scoped>
-.footer {
-  position: fixed;
-  bottom: 0;
-  height: 50px;
-  width: 100%;
-}
 .tab {
   display: flex;
   height: 50px;
