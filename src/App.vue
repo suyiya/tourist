@@ -30,6 +30,9 @@ p {
   padding: 0;
   margin: 0;
 }
+.bg-white{
+  background-color: #fff
+}
 .bg-green {
   background-color: #00d16b;
 }

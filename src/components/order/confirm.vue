@@ -21,7 +21,7 @@
       <div class="bor-bottom"></div>
       <div class="cus-left">
         <p>手机号</p>
-        <input placeholder="请输入手机号">
+        <input placeholder="请输入手机号" maxlength="11">
       </div>
       <div class="bor-bottom"></div>
       <div class="cus-left">
@@ -50,8 +50,9 @@ export default {
     };
   },
   methods: {
-    submit() {
-      console.log("submig");
+    submit() {this.$router.push({
+        path: "/orderDetail"
+      });
     }
   }
 };
