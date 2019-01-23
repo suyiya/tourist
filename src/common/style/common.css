@@ -1,0 +1,43 @@
+p {
+  padding: 0;
+  margin: 0;
+}
+.mt10 {
+  margin-top: 10px;
+}
+.mt14 {
+  margin-top: 14px;
+}
+.mt28 {
+  margin-top: 28px;
+}
+.pd8 {
+  padding: 8px;
+}
+.pd16 {
+  padding: 16px;
+}
+.pb60 {
+  padding-bottom: 60px;
+}
+.pl16 {
+  padding-left: 16px;
+}
+.bg-white {
+  background-color: #fff;
+}
+.bg-green {
+  background-color: #00d16b;
+}
+.c-white {
+  color: #fff;
+}
+.c-green {
+  color: #00d16b;
+}
+.f17 {
+  font-size: 17px;
+}
+.f14 {
+  font-size: 14px;
+}

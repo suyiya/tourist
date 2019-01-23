@@ -1,5 +1,5 @@
 <template>
-  <div class="info-small bg-white">
+  <div class="info-small bg-white" @click="goDetail()">
     <img src="@/assets/pic_denglu.png">
     <div class="pd8">
       <p class="text1">日本冲绳4天3晚2球</p>
@@ -11,11 +11,18 @@
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: "InfoSmall",
   data() {
     return {
       msg: "Welcome to Your Vue.js App"
     };
+  },
+  methods: {
+    goDetail() {
+      this.$router.push({
+        path: "/productDetail"
+      });
+    }
   }
 };
 </script>

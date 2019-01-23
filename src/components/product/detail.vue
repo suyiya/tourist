@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    产品列表
+    产品详情
   </div>
 </template>
 
