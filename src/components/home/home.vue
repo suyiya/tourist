@@ -2,10 +2,23 @@
   <div>
     <div class="pl16 pb60">
       <div>
-        <div>
+        <div class="mt28">
           <p class="title">热门目的地</p>
         </div>
-        <div class="container">
+        <div class="container mt14">
+          <district-item/>
+          <district-item/>
+          <district-item/>
+          <district-item/>
+          <district-item/>
+          <district-item/>
+          <district-item/>
+          <district-item/>
+          <district-item/>
+          <district-item/>
+          <district-item/>
+        </div>
+        <div class="container mt10">
           <info-small/>
           <info-small/>
           <info-small/>
@@ -51,6 +64,7 @@
 <script>
 import Tab from "@/components/tab/tab";
 import InfoSmall from "@/base/info-small";
+import DistrictItem from "@/base/district-item";
 export default {
   name: "HelloWorld",
   data() {
@@ -60,7 +74,8 @@ export default {
   },
   components: {
     Tab,
-    InfoSmall
+    InfoSmall,
+    DistrictItem
   },
   methods: {
     clickMore() {
