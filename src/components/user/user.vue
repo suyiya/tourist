@@ -1,5 +1,12 @@
 <template>
-  <div class="hello">我的
+  <div>
+    <div class="top"></div>
+    <div class="middle">
+      <div @click="clickOrder()">我的订单</div>
+    </div>
+    <div class="bottom">
+      <div class="item">关于我们</div>
+    </div>
     <tab></tab>
   </div>
 </template>
@@ -15,25 +22,40 @@ export default {
   },
   components: {
     Tab
+  },
+  methods: {
+    clickOrder() {
+      this.$router.push({
+        path: "/orderList"
+      });
+    }
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1,
-h2 {
-  font-weight: normal;
+.top {
+  height: 121px;
+  width: 100%;
+  background-color: white;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.middle {
+  height:76px;
+  background: white;
+  margin-left: 16px;
+  margin-right: 16px;
+  border-radius: 5px;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+.bottom{
+  background: white;
+  border-radius: 5px;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-top: 10px;
 }
-a {
-  color: #42b983;
+.item {
+  height: 52px;
+  width: 100%;
 }
 </style>
