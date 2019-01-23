@@ -24,6 +24,11 @@ body {
   margin: 0;
   background-color: #f7f7f7;
 }
+
+input {
+  -webkit-appearance : none;
+  border: none;
+}
 .footer {
   position: fixed;
   bottom: 0;
