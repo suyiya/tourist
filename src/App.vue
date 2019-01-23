@@ -26,23 +26,31 @@ body {
 .mt10 {
   margin-top: 10px;
 }
-.pd16{
+.pd16 {
   padding: 16px;
 }
 p {
   padding: 0;
   margin: 0;
 }
-.bg-white{
-  background-color: #fff
+.bg-white {
+  background-color: #fff;
 }
 .bg-green {
   background-color: #00d16b;
 }
+.c-white {
+  color: #fff;
+}
 .c-green {
   color: #00d16b;
 }
-
+.f17 {
+  font-size: 17px;
+}
+.f14 {
+  font-size: 14px;
+}
 .footer {
   position: fixed;
   bottom: 0;
