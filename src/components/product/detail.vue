@@ -4,6 +4,9 @@
     <div></div>
     <div></div>
     <div class="comment bg-white" @click="goComment()">全部点评</div>
+    <div class="footer bg-white">
+      <div class="botton bg-green" @click="reserve()">立即预定</div>
+    </div>
   </div>
 </template>
 
@@ -20,6 +23,11 @@ export default {
       this.$router.push({
         path: "/commentList"
       });
+    },
+    reserve(){
+      this.$router.push({
+        path: "/orderConfirm"
+      });
     }
   }
 };
@@ -34,5 +42,18 @@ export default {
 .comment {
   height: 147px;
   widows: 100%;
+}
+.footer {
+  height: 63px;
+}
+.botton {
+  height: 47px;
+  margin: 8px 16px;
+  font-size: 18px;
+  color: #fff;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 </style>
