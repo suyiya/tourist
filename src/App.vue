@@ -26,8 +26,17 @@ body {
 .mt10 {
   margin-top: 10px;
 }
+.pd8 {
+  padding: 8px;
+}
 .pd16 {
   padding: 16px;
+}
+.pb60 {
+  padding-bottom: 60px;
+}
+.pl16 {
+  padding-left: 16px;
 }
 p {
   padding: 0;

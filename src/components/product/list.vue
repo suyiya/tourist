@@ -1,6 +1,8 @@
 <template>
-  <div class="hello">
-    产品详情
+  <div>
+    <div>热门目的地</div>
+    <div>境外推荐</div>
+    <div>国内推荐</div>
   </div>
 </template>
 
