@@ -5,7 +5,7 @@
     <div class="cust-info"></div>
     <div class="order-info"></div>
     <div class="footer bg-white">
-      <div class="botton bg-green">去点评</div>
+      <div class="botton bg-green" @click="submit(0)">去点评</div>
     </div>
   </div>
 </template>
@@ -17,6 +17,20 @@ export default {
     return {
       msg: "Welcome to Your Vue.js App"
     };
+  },
+  methods: {
+    submit(index) {
+      console.log(index);
+      if (index == 0) {
+        this.$router.push({
+          path: "/comment"
+        });
+      } else {
+        this.$router.push({
+          path:""
+        })
+      }
+    }
   }
 };
 </script>

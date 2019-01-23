@@ -1,6 +1,14 @@
 <template>
-  <div class="hello">
-    评论
+  <div>
+    <div class="bg-white star-content">
+      <div>球场</div>
+    </div>
+    <div class="comment">
+      <textarea placeholder="您的评价会帮助其他球友了解这个套餐"/>
+    </div>
+    <div class="submit">
+      <div class="bg-green" @click="submit()">提交</div>
+    </div>
   </div>
 </template>
 
@@ -12,27 +20,45 @@ export default {
       msg: "Welcome to Your Vue.js App"
     };
   },
-  components: {
-    
+  components: {},
+  methods: {
+    submit() {
+      this.$router.push({
+        path: "/orderDetail"
+      });
+    }
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1,
-h2 {
-  font-weight: normal;
+.star-content {
+  height: 154px;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+.comment {
+  height: 80px;
+  margin-top: 10px;
+  background: white;
+  overflow: hidden;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
+
+.comment textarea {
+  height: 100%;
+  width: 100%;
+  padding: 10px 16px 0 16px;
 }
-a {
-  color: #42b983;
+.submit {
+  padding: 30px 20px;
+}
+.submit div {
+  height: 47px;
+  width: 100%;
+  color: #ffffff;
+  font-size: 18px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>
