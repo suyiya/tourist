@@ -50,7 +50,7 @@ export default {
   height: 121px;
   width: 100%;
   background: url("../../assets/bg_wode.png") no-repeat;
-  background-size: 100%;
+  background-size: 100% 100%;
 }
 .top-content {
   margin-left: 16px;
