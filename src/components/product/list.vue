@@ -1,36 +1,31 @@
 <template>
-  <div>
-    <div>热门目的地</div>
-    <div>境外推荐</div>
-    <div>国内推荐</div>
+  <div class="container">
+    <info-big/>
+    <info-big/>
+    <info-big/>
+    <info-big/>
+    <info-big/>
   </div>
 </template>
 
 <script>
+import InfoBig from "@/base/info-big";
 export default {
-  name: 'HelloWorld',
-  data () {
+  name: "HelloWorld",
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+      msg: "Welcome to Your Vue.js App"
+    };
+  },
+  components: {
+    InfoBig
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h1, h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+.container {
+  padding: 12px 16px;
 }
 </style>

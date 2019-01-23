@@ -1,5 +1,5 @@
 <template>
-  <div class="info-small bg-white" @click="goDetail()">
+  <div class="info-big bg-white" @click="goDetail()">
     <img src="@/assets/pic_denglu.png">
     <div class="pd8">
       <p class="text1">日本冲绳4天3晚2球</p>
@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: "InfoSmall",
+  name: "InfoBig",
   data() {
     return {
       msg: "Welcome to Your Vue.js App"
@@ -29,27 +29,27 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.info-small {
-  width: 160px;
-  height: 200px;
-  display: inline-block;
-  margin-right: 8px;
-  border-radius: 5px;
-}
-.info-small img {
+.info-big {
   width: 100%;
-  height: 100px;
+  height: 215px;
+  display: inline-block;
+  border-radius: 5px;
+  margin-bottom: 12px;
 }
-.info-small .text1 {
+.info-big img {
+  width: 100%;
+  height: 128px;
+}
+.info-big .text1 {
   font-size: 16px;
   color: #383838;
   font-weight: 500;
 }
-.info-small .text2 {
+.info-big .text2 {
   font-size: 13px;
   color: #808080;
 }
-.info-small .text3 {
+.info-big .text3 {
   font-size: 16px;
   color: #00c759;
   margin-top: 2px;
