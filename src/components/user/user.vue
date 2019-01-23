@@ -10,15 +10,15 @@
       </div>
     </div>
     <div class="middle">
-      <div class="middle-item">
+      <div class="middle-item" @click="clickOrder()">
         <img src="@/assets/btn_wodedingdan.png" style="width:20px;height:22px;">
-        <div class="text1" @click="clickOrder()">我的订单</div>
+        <div class="text1">我的订单</div>
       </div>
     </div>
     <div class="bottom">
       <div class="item bg-white">关于我们</div>
     </div>
-    <tab></tab>
+    <tab :tabIndex="3"></tab>
   </div>
 </template>
 

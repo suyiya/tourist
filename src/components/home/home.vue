@@ -1,6 +1,6 @@
 <template>
   <div class="hello">首页
-    <tab></tab>
+    <tab :tabIndex="1"></tab>
   </div>
 </template>
 

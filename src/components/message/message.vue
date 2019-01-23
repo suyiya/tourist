@@ -18,7 +18,7 @@
         活动消息
       </div>
     </div>
-    <tab></tab>
+    <tab :tabIndex="2"></tab>
   </div>
 </template>
 
