@@ -35,9 +35,12 @@ p {
 .c-green {
   color: #00d16b;
 }
-.f17 {
-  font-size: 17px;
+.f11{
+  font-size: 11px;
 }
 .f14 {
   font-size: 14px;
+}
+.f17 {
+  font-size: 17px;
 }
