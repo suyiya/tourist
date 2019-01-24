@@ -1,16 +1,8 @@
 <template>
   <div>
     <p class="text3">产品信息</p>
-    <div class="product-info">
-      <div class="product-left">
-        <img style="width:54px;height:54px;background:green">
-      </div>
-      <div class="product-right">
-        <p class="text5">泰国清迈高尔夫之旅3天2晚1球半日观光</p>
-        <p class="text4">套餐类型：绿谷球场+大岛球场，入住慧兰娜</p>
-        <p class="text4">意向日期: 2019-01-18</p>
-        <p class="text4">购买数量: 成人x1</p>
-      </div>
+    <div class="pd16 bg-white">
+      <info-bar/>
     </div>
     <p class="text3">预订人信息</p>
     <div class="cus-info">
@@ -42,6 +34,7 @@
 </template>
 
 <script>
+import InfoBar from "@/base/info-bar";
 export default {
   name: "HelloWorld",
   data() {
@@ -50,27 +43,20 @@ export default {
     };
   },
   methods: {
-    submit() {this.$router.push({
+    submit() {
+      this.$router.push({
         path: "/orderDetail"
       });
     }
+  },
+  components: {
+    InfoBar
   }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.product-info {
-  background-color: #ffffff;
-  display: flex;
-  padding: 16px;
-}
-.product-left {
-  width: 66px;
-}
-.product-right {
-  flex: 1;
-}
 .cus-info {
   background-color: #ffffff;
   display: flex;
@@ -102,14 +88,6 @@ export default {
   margin-top: 16px;
   margin-left: 15px;
   margin-bottom: 8px;
-}
-.text4 {
-  color: #808080;
-  font-size: 12px;
-}
-.text5 {
-  color: #383838;
-  font-size: 14px;
 }
 .submit-btn {
   color: #ffffff;

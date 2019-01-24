@@ -29,6 +29,10 @@ input {
   -webkit-appearance : none;
   border: none;
 }
+textarea {
+  -webkit-appearance : none;
+  border: none;
+}
 .footer {
   position: fixed;
   bottom: 0;

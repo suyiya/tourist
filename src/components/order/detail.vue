@@ -1,7 +1,10 @@
 <template>
   <div>
     <div class="top bg-green"></div>
-    <div class="product-info"></div>
+    <div class="product-info">
+      <p>产品信息</p>
+      <info-bar />
+    </div>
     <div class="cust-info"></div>
     <div class="order-info"></div>
     <div class="footer bg-white">
@@ -11,12 +14,16 @@
 </template>
 
 <script>
+import InfoBar from "@/base/info-bar";
 export default {
   name: "HelloWorld",
   data() {
     return {
       msg: "Welcome to Your Vue.js App"
     };
+  },
+  components: {
+    InfoBar
   },
   methods: {
     submit(index) {
@@ -27,8 +34,8 @@ export default {
         });
       } else {
         this.$router.push({
-          path:""
-        })
+          path: ""
+        });
       }
     }
   }
@@ -43,9 +50,15 @@ export default {
 }
 .product-info {
   height: 129px;
-  width: 100%;
   background: #fff;
   margin-top: 10px;
+  padding: 10px 16px;
+}
+.product-info p{
+  color: #383838;
+  font-weight: 600;
+  font-size: 13px;
+  margin-bottom: 10px;
 }
 .cust-info {
   height: 127px;
