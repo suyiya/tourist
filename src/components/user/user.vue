@@ -16,7 +16,10 @@
       </div>
     </div>
     <div class="bottom">
-      <div class="item bg-white">关于我们</div>
+      <div class="item bg-white" @click="about()">
+        <span>关于我们</span>
+        <img src="@/assets/btn_jiantou_xiao.png">
+      </div>
     </div>
     <tab :tabIndex="3"></tab>
   </div>
@@ -39,6 +42,9 @@ export default {
       this.$router.push({
         path: "/orderList"
       });
+    },
+    about() {
+      console.log('about me')
     }
   }
 };
@@ -89,6 +95,17 @@ export default {
   align-items: center;
   font-size: 16px;
   color: #383838;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+.bottom .item span {
+  padding-left: 16px;
+}
+.bottom .item img {
+  width: 20px;
+  height: 20px;
+  padding-right: 10px;
 }
 .text1 {
   font-size: 14px;

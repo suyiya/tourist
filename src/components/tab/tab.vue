@@ -16,9 +16,9 @@
 
 <script type="text/ecmascript-6">
 export default {
-  props:['tabIndex'],
+  props: ["tabIndex"],
   created() {
-    console.log(this.tabIndex)
+    // console.log(this.tabIndex)
   }
 };
 </script>
@@ -41,7 +41,7 @@ export default {
   background-size: 16px 18px;
   background-position-x: 50%;
 }
-.home-sel{
+.home-sel {
   background: url("../../assets/icon_shouye_sel.png") no-repeat;
   background-size: 16px 18px;
   background-position-x: 50%;
