@@ -2,7 +2,7 @@
   <div class="product-detail">
     <img class="image" src="@/assets/pic_denglu.png">
     <div></div>
-    <div></div>
+    <div class="package" @click="goPackage()">选择</div>
     <div class="comment bg-white" @click="goComment()">全部点评</div>
     <div class="footer bg-white">
       <div class="botton bg-green" @click="reserve()">立即预定</div>
@@ -12,11 +12,9 @@
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: "ProductDetail",
   data() {
-    return {
-      msg: "Welcome to Your Vue.js App"
-    };
+    return {};
   },
   methods: {
     goComment() {
@@ -24,12 +22,19 @@ export default {
         path: "/commentList"
       });
     },
-    reserve(){
+    reserve() {
       this.$router.push({
         path: "/orderConfirm"
       });
+    },
+    goPackage() {
+      this.$router.push({
+        path: "/productPackage"
+      });
     }
-  }
+  },
+  created() {},
+  mounted() {}
 };
 </script>
 
