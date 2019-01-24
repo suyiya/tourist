@@ -1,12 +1,24 @@
 <template>
-  <div class="hello">
-    <div>套餐类型</div>
-    <div>出发日期</div>
+  <div>
+    <div class="title">套餐类型</div>
+    <div class="package-container">
+      <div class="package" :class="packageType==1?'pk-select':''" @click="selectPackage(1)">
+        <p>上海至普吉清迈8天6晚2球泰国深度纯玩半</p>
+        <p></p>
+      </div>
+      <div class="package" :class="packageType==2?'pk-select':''" @click="selectPackage(2)">
+        <p>上海至普吉清迈8天6晚2球泰国深度纯玩半</p>
+      </div>
+      <div class="package" :class="packageType==3?'pk-select':''" @click="selectPackage(3)">
+        <p>上海至普吉清迈8天6晚2球泰国深度纯玩半</p>
+      </div>
+    </div>
+    <div class="title">出发日期</div>
     <div class="date-bar" @click="showPicker()">
       <span>{{time}}</span>
       <img src="@/assets/btn_jiantou_xiao.png">
     </div>
-    <div>出游人群</div>
+    <div class="title">出游人群</div>
     <div class="people">
       <div class="people-bar">
         <p @click="choosePeople(1)" :class="peopleType==1?'selected':''">成人</p>
@@ -14,7 +26,24 @@
         <p @click="choosePeople(3)" :class="peopleType==3?'selected':''">单人房差</p>
       </div>
     </div>
-    <div>购买数量</div>
+    <div class="title">购买数量</div>
+    <div class="amount">
+      <div>数量</div>
+      <div class="digit">
+        <div @click="minus()">-</div>
+        <div>{{amount}}</div>
+        <div @click="add()">+</div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="submit-bar">
+        <div class="submit-price">
+          <p class="text1">总价</p>
+          <p class="c-green text2">￥2048</p>
+        </div>
+        <div class="bg-green submit-btn" @click="submit()">立即预定</div>
+      </div>
+    </div>
     <mt-datetime-picker
       v-show="pickerVisible"
       ref="picker"
@@ -36,7 +65,9 @@ export default {
       pickerVisible: false,
       startDate: new Date(),
       time: new Date().format("YYYY-MM-dd"),
-      peopleType: 1
+      peopleType: 1,
+      amount: 1,
+      packageType: 1
     };
   },
 
@@ -50,6 +81,23 @@ export default {
     },
     choosePeople(index) {
       this.peopleType = index;
+    },
+    minus() {
+      if (this.amount == 1) {
+        return;
+      }
+      this.amount -= 1;
+    },
+    add() {
+      this.amount += 1;
+    },
+    selectPackage(index) {
+      this.packageType = index;
+    },
+    submit() {
+      this.$router.push({
+        path: "/orderList"
+      });
     }
   }
 };
@@ -57,6 +105,35 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.package-container {
+  padding: 0px 16px;
+}
+.package {
+  background: #ffffff;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  padding: 9px 12px;
+  border-radius: 2px;
+  margin-bottom: 8px;
+}
+.package p {
+  color: #808080;
+}
+.pk-select {
+  background: rgba(0, 199, 89, 0.2);
+  border: 1px solid #00c759;
+}
+.pk-select p {
+  color: #383838;
+}
+.title {
+  font-size: 14px;
+  color: #a6a6a6;
+  padding-top: 16px;
+  padding-left: 16px;
+  padding-bottom: 8px;
+}
 .date-bar {
   height: 44px;
   background: white;
@@ -104,7 +181,87 @@ export default {
   background: #00c759;
   color: #fff !important;
 }
-.mint-datetime-action {
-  text-align: left;
+.amount {
+  height: 60px;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.amount div:nth-child(1) {
+  font-size: 17px;
+  color: #383838;
+  font-weight: 550;
+}
+.digit {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.digit div:nth-child(1) {
+  width: 24px;
+  height: 24px;
+  background: #f7f7f7;
+  color: #cccccc;
+  font-size: 17px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  margin-right: 17px;
+}
+.digit div:nth-child(2) {
+  font-size: 17px;
+  color: #383838;
+  font-weight: 550;
+}
+.digit div:nth-child(3) {
+  width: 24px;
+  height: 24px;
+  background: #f7f7f7;
+  color: #cccccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  margin-left: 17px;
+}
+.submit-bar {
+  display: flex;
+  width: 100%;
+  height: 49px;
+  background-color: #ffffff;
+}
+.submit-price {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 4px 16px;
+}
+.text1 {
+  color: #383838;
+  font-size: 12px;
+}
+.text2 {
+  font-size: 20px;
+}
+.text3 {
+  color: #383838;
+  font-size: 14px;
+  margin-top: 16px;
+  margin-left: 15px;
+  margin-bottom: 8px;
+}
+.submit-btn {
+  color: #ffffff;
+  font-size: 18px;
+  width: 125px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>
