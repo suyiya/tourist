@@ -24,7 +24,7 @@ export default {
   methods: {
     submit() {
       this.$router.push({
-        path: "/orderDetail"
+        path: "/orderList"
       });
     }
   }

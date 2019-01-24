@@ -1,6 +1,8 @@
 <template>
   <div>
-    <div class="top"></div>
+    <div class="nav">
+
+    </div>
   </div>
 </template>
 
@@ -17,7 +19,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.top{
+.nav{
   height: 40px;
   background: white;
   width: 100%;

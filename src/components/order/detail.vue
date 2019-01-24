@@ -43,6 +43,7 @@
         <span>在线支付</span>
       </p>
     </div>
+    <div class="blank"></div>
     <div class="footer bg-white">
       <div class="botton bg-green" @click="submit(0)">去点评</div>
     </div>
@@ -118,13 +119,11 @@ export default {
   color: #808080;
 }
 .cust-info {
-  width: 100%;
   background: #fff;
   margin-top: 10px;
   padding: 10px 16px;
 }
 .order-info {
-  width: 100%;
   background: #fff;
   margin-top: 10px;
   padding: 10px 16px;
@@ -149,5 +148,8 @@ export default {
   justify-content: center;
   align-items: center;
   display: flex;
+}
+.blank {
+  margin-bottom: 70px;
 }
 </style>
