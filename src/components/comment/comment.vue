@@ -29,7 +29,9 @@ export default {
   name: "Comment",
   data() {
     return {
-      msg: "Welcome to Your Vue.js App"
+      routeNum: 1,
+      hotelNum: 1,
+      courtNum: 1
     };
   },
   components: {

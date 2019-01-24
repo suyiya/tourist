@@ -1,10 +1,10 @@
 <template>
-  <div class="star-container" @click="goDetail()">
-    <img src="@/assets/btn_yipingxing.png">
-    <img src="@/assets/btn_weipingxing.png" @click="clickStar(2)">
-    <img src="@/assets/btn_weipingxing.png" @click="clickStar(3)">
-    <img src="@/assets/btn_weipingxing.png" @click="clickStar(4)">
-    <img src="@/assets/btn_weipingxing.png" @click="clickStar(5)">
+  <div class="star-container">
+    <img :src="selectStar">
+    <img :src="number>1?selectStar:unStar" @click="clickStar(2)">
+    <img :src="number>2?selectStar:unStar" @click="clickStar(3)">
+    <img :src="number>3?selectStar:unStar" @click="clickStar(4)">
+    <img :src="number>4?selectStar:unStar" @click="clickStar(5)">
   </div>
 </template>
 
@@ -15,6 +15,10 @@ export default {
     return {
       number: 1
     };
+  },
+  created() {
+      this.selectStar = require("@/assets/btn_yipingxing.png");
+      this.unStar = require("@/assets/btn_weipingxing.png");
   },
   methods: {
     clickStar(number) {
