@@ -1,25 +1,23 @@
 <template>
   <div>
-    <div class="nav">
-
-    </div>
+    <div class="nav">订单列表</div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
-  data () {
+  name: "HelloWorld",
+  data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
-    }
+      msg: "Welcome to Your Vue.js App"
+    };
   }
-}
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.nav{
+.nav {
   height: 40px;
   background: white;
   width: 100%;

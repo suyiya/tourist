@@ -1,7 +1,18 @@
 <template>
   <div>
     <div class="bg-white star-content">
-      <div>球场</div>
+      <div class="star-bar">
+        <p>线路</p>
+        <star-list/>
+      </div>
+      <div class="star-bar">
+        <p>酒店</p>
+        <star-list/>
+      </div>
+      <div class="star-bar">
+        <p>球场</p>
+        <star-list/>
+      </div>
     </div>
     <div class="comment">
       <textarea placeholder="您的评价会帮助其他球友了解这个套餐"/>
@@ -13,14 +24,17 @@
 </template>
 
 <script>
+import StarList from "@/base/star-list";
 export default {
-  name: "HelloWorld",
+  name: "Comment",
   data() {
     return {
       msg: "Welcome to Your Vue.js App"
     };
   },
-  components: {},
+  components: {
+    StarList
+  },
   methods: {
     submit() {
       this.$router.push({
@@ -34,7 +48,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .star-content {
-  height: 154px;
+  padding: 20px 16px;
 }
 .comment {
   height: 80px;
@@ -60,5 +74,15 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.star-bar {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.star-bar p {
+  color: #383838;
+  font-size: 15px;
+  margin-right: 15px;
 }
 </style>
