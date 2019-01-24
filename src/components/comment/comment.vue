@@ -3,15 +3,15 @@
     <div class="bg-white star-content">
       <div class="star-bar">
         <p>线路</p>
-        <star-list/>
+        <star-list v-on:getNum="getRouteNum"/>
       </div>
       <div class="star-bar">
         <p>酒店</p>
-        <star-list/>
+        <star-list v-on:getNum="getHotelNum"/>
       </div>
       <div class="star-bar">
         <p>球场</p>
-        <star-list/>
+        <star-list v-on:getNum="getCourtNum"/>
       </div>
     </div>
     <div class="comment">
@@ -42,6 +42,18 @@ export default {
       this.$router.push({
         path: "/orderList"
       });
+    },
+    getRouteNum(num){
+      console.log(num)
+      this.routeNum = num;
+    },
+    getHotelNum(num){
+      console.log(num)
+      this.hotelNum = num;
+    },
+    getCourtNum(num){
+      console.log(num)
+      this.courtNum = num;
     }
   }
 };
@@ -57,12 +69,13 @@ export default {
   margin-top: 10px;
   background: white;
   overflow: hidden;
+  padding: 10px 16px;
 }
 
 .comment textarea {
   height: 100%;
   width: 100%;
-  padding: 10px 16px 0 16px;
+  font-size: 17px;
 }
 .submit {
   padding: 30px 20px;
