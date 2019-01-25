@@ -8,17 +8,17 @@
     <div class="cus-info">
       <div class="cus-left">
         <p>姓名</p>
-        <input placeholder="**文（请输入完整姓名）">
+        <input type="text" v-model="name" placeholder="请输入完整姓名">
       </div>
       <div class="bor-bottom"></div>
       <div class="cus-left">
         <p>手机号</p>
-        <input placeholder="请输入手机号" maxlength="11">
+        <input type="number" v-model="phone" placeholder="请输入手机号" maxlength="11">
       </div>
       <div class="bor-bottom"></div>
       <div class="cus-left">
         <p>邮箱</p>
-        <input placeholder="请输入邮箱">
+        <input type="text" v-model="email" placeholder="请输入邮箱">
       </div>
     </div>
     <div class="footer">
@@ -35,15 +35,30 @@
 
 <script>
 import InfoBar from "@/base/info-bar";
+import { Toast } from "mint-ui";
 export default {
   name: "OrderConfirm",
   data() {
     return {
-      msg: "Welcome to Your Vue.js App"
+      name: "",
+      phone: "",
+      email: ""
     };
   },
   methods: {
     submit() {
+      if (!this.name || this.name.length < 2) {
+        Toast("请输入完整姓名！");
+        return;
+      }
+      if (!utli.isPhoneAvailable(this.phone)) {
+        Toast("请输入正确的手机号！");
+        return;
+      }
+      if (!utli.isEmailAvailable(this.email)) {
+        Toast("请输入正确的邮箱！");
+        return;
+      }
       this.$router.push({
         path: "/orderDetail"
       });

@@ -65,6 +65,7 @@
 import Tab from "@/components/tab/tab";
 import InfoSmall from "@/base/info-small";
 import DistrictItem from "@/base/district-item";
+import { Indicator } from "mint-ui";
 export default {
   name: "Home",
   data() {
@@ -76,6 +77,12 @@ export default {
     Tab,
     InfoSmall,
     DistrictItem
+  },
+  created() {
+    // Indicator.close();
+  },
+  mounted() {
+    // Indicator.open();
   },
   methods: {
     clickMore() {

@@ -116,7 +116,7 @@ export default {
     },
     submit() {
       this.$router.push({
-        path: "/orderList"
+        path: "/productDetail"
       });
     }
   }
