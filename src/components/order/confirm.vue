@@ -78,6 +78,7 @@ export default {
 .text1 {
   color: #383838;
   font-size: 12px;
+  padding-left: 6px;
 }
 .text2 {
   font-size: 20px;
