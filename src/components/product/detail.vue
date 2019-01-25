@@ -1,10 +1,10 @@
 <template>
   <div class="product-detail">
-    <img class="image" src="@/assets/pic_denglu.png">
+    <img class="image" :src="data.main_thumb_urls">
     <div class="product-info">
-      <p>泰国清迈高尔夫之旅3天2晚1球半日观光</p>
-      <p>行走融合东西方文化、包罗万象的天使之城</p>
-      <p>￥7099起</p>
+      <p>{{data.title}}</p>
+      <p>{{data.subtitle}}</p>
+      <p>￥{{data.default_price}}起</p>
     </div>
     <div class="package" @click="goPackage()">
       <p>选择：套餐类型/意向日期/人群</p>
@@ -37,7 +37,29 @@
 export default {
   name: "ProductDetail",
   data() {
-    return {};
+    return {
+      data: {
+        point_name: "shanghai",
+        days: 3,
+        main_thumb_urls:
+          "https://www.hole19golf.com/assets/course-profile-default_1-020faf6a99e5096c1e7432ee1da8401b0fd6957f7a6d431d7ea9fe09fe9bc732.jpg",
+        creator: 1,
+        create_time: "2019-01-07 12:12:12",
+        status: 1,
+        p_lat: 31.23122,
+        p_lon: 123.3456,
+        introduce: "this is first travel product introduce",
+        way: "this is way of travel",
+        feedetail: null,
+        exceptions: "this is exception of travel product",
+        title: "first travel",
+        subtitle: "first travel in shanghai 3 days",
+        default_price: 120,
+        default_price_introduce: "标配行程价",
+        default_price_title: "标配行程价",
+        id: 1
+      }
+    };
   },
   methods: {
     goComment() {
