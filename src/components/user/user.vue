@@ -28,7 +28,7 @@
 <script>
 import Tab from "@/components/tab/tab";
 export default {
-  name: "HelloWorld",
+  name: "User",
   data() {
     return {
       msg: "Welcome to Your Vue.js App"
@@ -44,7 +44,7 @@ export default {
       });
     },
     about() {
-      console.log('about me')
+      console.log("about me");
     }
   }
 };

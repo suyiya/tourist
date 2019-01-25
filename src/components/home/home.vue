@@ -66,7 +66,7 @@ import Tab from "@/components/tab/tab";
 import InfoSmall from "@/base/info-small";
 import DistrictItem from "@/base/district-item";
 export default {
-  name: "HelloWorld",
+  name: "Home",
   data() {
     return {
       msg: "Welcome to Your Vue.js App"

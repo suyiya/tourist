@@ -11,7 +11,7 @@
 <script>
 import InfoBig from "@/base/info-big";
 export default {
-  name: "HelloWorld",
+  name: "ProductList",
   data() {
     return {
       msg: "Welcome to Your Vue.js App"

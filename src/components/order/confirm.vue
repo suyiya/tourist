@@ -36,7 +36,7 @@
 <script>
 import InfoBar from "@/base/info-bar";
 export default {
-  name: "HelloWorld",
+  name: "OrderConfirm",
   data() {
     return {
       msg: "Welcome to Your Vue.js App"

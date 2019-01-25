@@ -49,7 +49,7 @@
 <script>
 import Tab from "@/components/tab/tab";
 export default {
-  name: "HelloWorld",
+  name: "Message",
   data() {
     return {
       msg: "Welcome to Your Vue.js App"
