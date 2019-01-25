@@ -1,5 +1,5 @@
 <template>
-  <div class="order-item">
+  <div class="order-item" @click="goOrderDetail()">
     <div class="order-top">
       <p>订单编号：32168431664313</p>
       <p>待支付</p>
@@ -29,9 +29,9 @@ export default {
     InfoBar
   },
   methods: {
-    goList() {
+    goOrderDetail() {
       this.$router.push({
-        path: "/productList"
+        path: "/orderDetail"
       });
     }
   }
