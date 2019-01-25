@@ -67,7 +67,27 @@ export default {
       time: new Date().format("YYYY-MM-dd"),
       peopleType: 1,
       amount: 1,
-      packageType: 1
+      packageType: 1,
+      travelProductPriceList: [
+        {
+          is_default: 1,
+          tid: 1,
+          price_id: 1,
+          price: 120,
+          description: "标配行程价",
+          p_title: "标配行程价",
+          lang_id: "cn"
+        },
+        {
+          is_default: 1,
+          tid: 1,
+          price_id: 1,
+          price: 120,
+          description: "标配行程价",
+          p_title: "标配行程价",
+          lang_id: "cn"
+        }
+      ]
     };
   },
 
