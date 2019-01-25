@@ -54,9 +54,12 @@ export default {
 .product-right .text4 {
   color: #808080;
   font-size: 12px;
+  margin-bottom: 2px;
 }
 .product-right .text5 {
   color: #383838;
   font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 3px;
 }
 </style>

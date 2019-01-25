@@ -11,16 +11,25 @@
         <p :class="navType==3?'selected':''">已完成</p>
       </div>
     </div>
+    <div class="container">
+      <OrderItem/>
+      <OrderItem/>
+      <OrderItem/>
+    </div>
   </div>
 </template>
 
 <script>
+import OrderItem from "@/base/order-item";
 export default {
   name: "OrderList",
   data() {
     return {
       navType: 1
     };
+  },
+  components: {
+    OrderItem
   },
   methods: {
     changeNav(index) {
@@ -55,5 +64,8 @@ export default {
 .nav-item .selected {
   color: #00c759;
   border-bottom: 2px solid #00c759;
+}
+.container {
+  padding: 12px 16px;
 }
 </style>
