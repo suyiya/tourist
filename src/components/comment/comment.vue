@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="comment">
-      <textarea placeholder="您的评价会帮助其他球友了解这个套餐"/>
+      <textarea v-model="content" placeholder="您的评价会帮助其他球友了解这个套餐"/>
     </div>
     <div class="submit">
       <div class="bg-green" @click="submit()">提交</div>
@@ -25,13 +25,15 @@
 
 <script>
 import StarList from "@/base/star-list";
+import { Toast } from "mint-ui";
 export default {
   name: "Comment",
   data() {
     return {
       routeNum: 1,
       hotelNum: 1,
-      courtNum: 1
+      courtNum: 1,
+      content: ""
     };
   },
   components: {
@@ -39,20 +41,24 @@ export default {
   },
   methods: {
     submit() {
+      if (!this.content || this.content.length < 2) {
+        Toast("请输入评价内容！");
+        return;
+      }
       this.$router.push({
         path: "/orderList"
       });
     },
-    getRouteNum(num){
-      console.log(num)
+    getRouteNum(num) {
+      console.log(num);
       this.routeNum = num;
     },
-    getHotelNum(num){
-      console.log(num)
+    getHotelNum(num) {
+      console.log(num);
       this.hotelNum = num;
     },
-    getCourtNum(num){
-      console.log(num)
+    getCourtNum(num) {
+      console.log(num);
       this.courtNum = num;
     }
   }

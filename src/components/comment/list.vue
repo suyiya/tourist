@@ -1,14 +1,14 @@
 <template>
   <div>
-    <div class="mt10 pd16 bg-white">
+    <div :key="item.tid" v-for="item in travelCommentsList" class="mt10 pd16 bg-white">
       <div class="top">
         <div class="user-info">
-          <img class="avatar">
+          <img src="comments_pic_urls" class="avatar">
           <span class="name">韩*桦</span>
         </div>
-        <div class="date">2018-01-01 12:12</div>
+        <div class="date">{{item.create_time}}</div>
       </div>
-      <div class="content">清迈风景很美，行程安排也不错，无论是领队、导游的服务、讲解清楚、住宿安排、餐饮与交通等方面我们都非常满意。</div>
+      <div class="content">{{item.comments}}</div>
     </div>
   </div>
 </template>
@@ -18,7 +18,32 @@ export default {
   name: "CommentList",
   data() {
     return {
-      msg: "Welcome to Your Vue.js App"
+      travelCommentsList: [
+        {
+          travel_type: 0,
+          tid: 1,
+          torder_id: 1,
+          comments: "It's good for me!",
+          service_stars: 5,
+          way_stars: 4,
+          comments_uid: 18,
+          create_time: "2019-01-08 20:47:18",
+          comments_pic_urls: "",
+          id: 1
+        },
+        {
+          travel_type: 0,
+          tid: 2,
+          torder_id: 1,
+          comments: "It's good for you!",
+          service_stars: 5,
+          way_stars: 4,
+          comments_uid: 18,
+          create_time: "2019-01-08 20:47:20",
+          comments_pic_urls: "",
+          id: 1
+        }
+      ]
     };
   },
   components: {}
@@ -39,7 +64,6 @@ export default {
 .avatar {
   width: 24px;
   height: 24px;
-  background: green;
   border-radius: 50%;
 }
 .name {
