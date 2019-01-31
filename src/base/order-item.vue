@@ -10,7 +10,7 @@
     <div class="order-bottom">
       <p>
         需付款:
-        <span>￥2486.00</span>
+        <span>￥{{data.realpay}}</span>
       </p>
     </div>
   </div>
@@ -25,8 +25,12 @@ export default {
       msg: "Welcome to Your Vue.js App"
     };
   },
+  props: ["data"],
   components: {
     InfoBar
+  },
+  created() {
+    console.log(this.data);
   },
   methods: {
     goOrderDetail() {

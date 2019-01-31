@@ -7,8 +7,13 @@
 </template>
 
 <script>
+import WeChatJSBridge from "@/common/utility/wx";
 export default {
-  name: "App"
+  name: "App",
+  created() {
+    this.weChatJSBridge = new WeChatJSBridge();
+    this.weChatJSBridge.getWeChatSignature();
+  }
 };
 </script>
 
@@ -26,11 +31,11 @@ body {
 }
 
 input {
-  -webkit-appearance : none;
+  -webkit-appearance: none;
   border: none;
 }
 textarea {
-  -webkit-appearance : none;
+  -webkit-appearance: none;
   border: none;
 }
 .footer {

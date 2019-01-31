@@ -1,13 +1,6 @@
 <template>
   <div class="message-list">
-    <message-item/>
-    <message-item/>
-    <message-item/>
-    <message-item/>
-    <message-item/>
-    <message-item/>
-    <message-item/>
-    <message-item/>
+    <message-item v-for="item in message_list" :key="item.Id" :data="item"/>
   </div>
 </template>
 
@@ -17,7 +10,18 @@ export default {
   name: "MessageList",
   data() {
     return {
-      msg: "Welcome to Your Vue.js App"
+      message_list: [
+        {
+          Id: 1,
+          m_type: 1,
+          message: "hahaha",
+          orderId: 1,
+          productId: 1,
+          notifyUId: 1,
+          notify_time: "2018-11-11 15:15:15",
+          relate_with: 1
+        }
+      ]
     };
   },
   created() {

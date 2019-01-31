@@ -12,9 +12,7 @@
       </div>
     </div>
     <div class="container">
-      <OrderItem :key="item.id" v-for="item in travel_order_list"/>
-      <OrderItem/>
-      <OrderItem/>
+      <OrderItem :key="item.id" v-for="item in travel_order_list" :data="item"/>
     </div>
   </div>
 </template>
@@ -34,7 +32,7 @@ export default {
           owner_id: 0,
           status: 0,
           discount: 1,
-          realpay: 1,
+          realpay: 1999,
           tid: 1,
           price_id: 1,
           start_time: "2018-12-12 00:00:00",

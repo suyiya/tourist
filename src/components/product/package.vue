@@ -2,15 +2,14 @@
   <div>
     <div class="title">套餐类型</div>
     <div class="package-container">
-      <div class="package" :class="packageType==1?'pk-select':''" @click="selectPackage(1)">
-        <p>上海至普吉清迈8天6晚2球泰国深度纯玩半</p>
-        <p></p>
-      </div>
-      <div class="package" :class="packageType==2?'pk-select':''" @click="selectPackage(2)">
-        <p>上海至普吉清迈8天6晚2球泰国深度纯玩半</p>
-      </div>
-      <div class="package" :class="packageType==3?'pk-select':''" @click="selectPackage(3)">
-        <p>上海至普吉清迈8天6晚2球泰国深度纯玩半</p>
+      <div
+        class="package"
+        v-for="(item,index) in travelProductPriceList"
+        :key="item.tid"
+        :class="packageIndex==index?'pk-select':''"
+        @click="selectPackage(index)"
+      >
+        <p>{{item.p_title}}</p>
       </div>
     </div>
     <div class="title">出发日期</div>
@@ -39,7 +38,7 @@
       <div class="submit-bar">
         <div class="submit-price">
           <p class="text1">总价</p>
-          <p class="c-green text2">￥2048</p>
+          <p class="c-green text2">￥{{totalPrice}}</p>
         </div>
         <div class="bg-green submit-btn" @click="submit()">立即预定</div>
       </div>
@@ -67,24 +66,34 @@ export default {
       time: new Date().format("YYYY-MM-dd"),
       peopleType: 1,
       amount: 1,
-      packageType: 1,
+      packageIndex: 0,
+      totalPrice: 0,
       travelProductPriceList: [
         {
           is_default: 1,
           tid: 1,
           price_id: 1,
           price: 120,
-          description: "标配行程价",
-          p_title: "标配行程价",
+          description: "标配行程价1",
+          p_title: "标配行程价1",
           lang_id: "cn"
         },
         {
-          is_default: 1,
-          tid: 1,
-          price_id: 1,
-          price: 120,
-          description: "标配行程价",
-          p_title: "标配行程价",
+          is_default: 0,
+          tid: 2,
+          price_id: 2,
+          price: 123,
+          description: "标配行程价2",
+          p_title: "标配行程价2",
+          lang_id: "cn"
+        },
+        {
+          is_default: 0,
+          tid: 3,
+          price_id: 2,
+          price: 124,
+          description: "标配行程价3",
+          p_title: "标配行程价3",
           lang_id: "cn"
         }
       ]
@@ -99,24 +108,32 @@ export default {
     handleConfirm(newDate) {
       this.time = newDate.format("YYYY-MM-dd");
     },
-    choosePeople(index) {
-      this.peopleType = index;
+    choosePeople(tid) {
+      this.peopleType = tid;
     },
     minus() {
       if (this.amount == 1) {
         return;
       }
       this.amount -= 1;
+      this.getTotalPrice();
     },
     add() {
       this.amount += 1;
+      this.getTotalPrice();
     },
     selectPackage(index) {
-      this.packageType = index;
+      this.packageIndex = index;
+      this.getTotalPrice();
+    },
+    getTotalPrice() {
+      let price = this.travelProductPriceList[this.packageIndex].price;
+      this.totalPrice = price * this.amount;
     },
     submit() {
       this.$router.push({
-        path: "/productDetail"
+        path: "/productDetail",
+        query: this.travelProductPriceList[this.packageIndex]
       });
     }
   }

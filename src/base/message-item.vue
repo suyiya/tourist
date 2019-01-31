@@ -5,7 +5,7 @@
     </div>
     <div class="container">
       <p>开局提醒</p>
-      <p>您参加的球局已开局，您可以到我的订单查看具体的球 局相关信息</p>
+      <p>{{data.message}}</p>
       <div @click="clickMessage()">
         <p>点击查看</p>
         <img src="@/assets/btn_jiantou_xiao.png">
@@ -22,6 +22,7 @@ export default {
       msg: "Welcome to Your Vue.js App"
     };
   },
+  props: ["data"],
   components: {},
   methods: {
     clickMessage() {

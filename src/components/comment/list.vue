@@ -3,7 +3,7 @@
     <div :key="item.tid" v-for="item in travelCommentsList" class="mt10 pd16 bg-white">
       <div class="top">
         <div class="user-info">
-          <img src="comments_pic_urls" class="avatar">
+          <img :src="item.comments_pic_urls" class="avatar">
           <span class="name">韩*桦</span>
         </div>
         <div class="date">{{item.create_time}}</div>
