@@ -71,11 +71,10 @@ export default {
   methods: {
     setPackage() {
       let query = this.$route.query;
-      if (JSON.stringify(query) === "{}") {
-        this.packageText = "套餐类型/意向日期/人群";
-      } else {
+      if (query.amount) {
         this.packageText = `${query.p_title}/${query.time}/人群`;
-        console.log("如果不为空,返回true");
+      } else {
+        this.packageText = "套餐类型/意向日期/人群";
       }
     },
     goComment() {
@@ -85,9 +84,17 @@ export default {
     },
 
     reserve() {
-      this.$router.push({
-        path: "/orderConfirm"
-      });
+      let query = this.$route.query;
+      if (query.amount) {
+        this.$router.push({
+          path: "/orderConfirm",
+          query: this.$route.query
+        });
+      } else {
+        this.$router.push({
+          path: "/productPackage"
+        });
+      }
     },
     goPackage() {
       this.$router.push({

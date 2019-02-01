@@ -1,10 +1,10 @@
 <template>
   <div class="info-big bg-white" @click="goDetail()">
-    <img src="@/assets/pic_denglu.png">
+    <img :src="data.main_thumb_urls">
     <div class="pd8">
-      <p class="text1">日本冲绳4天3晚2球</p>
-      <p class="text2">尽享日本冲绳宫古蓝</p>
-      <p class="text3">¥5880起</p>
+      <p class="text1">{{data.title}}</p>
+      <p class="text2">{{data.subtitle}}</p>
+      <p class="text3">¥{{data.default_price}}起</p>
     </div>
   </div>
 </template>
@@ -12,6 +12,7 @@
 <script>
 export default {
   name: "InfoBig",
+  props: ["data"],
   data() {
     return {
       msg: "Welcome to Your Vue.js App"
@@ -20,7 +21,10 @@ export default {
   methods: {
     goDetail() {
       this.$router.push({
-        path: "/productDetail"
+        path: "/productDetail",
+        query: {
+          id: this.data.id
+        }
       });
     }
   }

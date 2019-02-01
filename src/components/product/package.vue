@@ -47,6 +47,7 @@
       v-show="pickerVisible"
       ref="picker"
       type="date"
+      v-model="dateVal"
       year-format="{value} 年"
       month-format="{value} 月"
       date-format="{value} 日"
@@ -70,7 +71,7 @@ export default {
       totalPrice: 0,
       travelProductPriceList: [
         {
-          is_default: 1,
+          is_default: 0,
           tid: 1,
           price_id: 1,
           price: 120,
@@ -88,7 +89,7 @@ export default {
           lang_id: "cn"
         },
         {
-          is_default: 0,
+          is_default: 1,
           tid: 3,
           price_id: 2,
           price: 124,
@@ -99,7 +100,17 @@ export default {
       ]
     };
   },
-
+  created() {
+    for (let i = 0; i < this.travelProductPriceList.length; i++) {
+      let travel = this.travelProductPriceList[i];
+      if (travel.is_default == 1) {
+        this.packageIndex = i;
+        this.totalPrice = travel.price;
+        break;
+      }
+    }
+    this.dateVal = new Date("2019-2-2");
+  },
   methods: {
     showPicker() {
       this.pickerVisible = true;
