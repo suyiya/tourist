@@ -61,12 +61,27 @@ export default {
       }
     };
   },
+  mounted() {
+    if (JSON.stringify(this.$route.query) === "{}") {
+      console.log("如果为空,返回false");
+    } else {
+      console.log("如果不为空,返回true");
+    }
+  },
+  activated() {
+    if (JSON.stringify(this.$route.query) === "{}") {
+      console.log("如果为空,返回false");
+    } else {
+      console.log("如果不为空,返回true");
+    }
+  },
   methods: {
     goComment() {
       this.$router.push({
         path: "/commentList"
       });
     },
+
     reserve() {
       this.$router.push({
         path: "/orderConfirm"
@@ -78,8 +93,11 @@ export default {
       });
     }
   },
-  created() {},
-  mounted() {}
+  watch: {
+    "$route.query"() {
+      // console.log('$route.query')
+    }
+  }
 };
 </script>
 

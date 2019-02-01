@@ -133,7 +133,10 @@ export default {
     submit() {
       this.$router.push({
         path: "/productDetail",
-        query: this.travelProductPriceList[this.packageIndex]
+        query: {
+          ...this.travelProductPriceList[this.packageIndex],
+          amount: this.amount
+        }
       });
     }
   }
