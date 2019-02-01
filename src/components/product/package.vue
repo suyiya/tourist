@@ -135,7 +135,8 @@ export default {
         path: "/productDetail",
         query: {
           ...this.travelProductPriceList[this.packageIndex],
-          amount: this.amount
+          amount: this.amount,
+          time: this.time
         }
       });
     }

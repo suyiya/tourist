@@ -7,7 +7,7 @@
       <p>￥{{data.default_price}}起</p>
     </div>
     <div class="package" @click="goPackage()">
-      <p>选择：套餐类型/意向日期/人群</p>
+      <p>选择：{{packageText}}</p>
       <img src="@/assets/btn_jiantou_xiao.png">
     </div>
     <div class="comment bg-white" @click="goComment()">
@@ -38,6 +38,7 @@ export default {
   name: "ProductDetail",
   data() {
     return {
+      packageText: "套餐类型/意向日期/人群",
       data: {
         point_name: "shanghai",
         days: 3,
@@ -62,20 +63,21 @@ export default {
     };
   },
   mounted() {
-    if (JSON.stringify(this.$route.query) === "{}") {
-      console.log("如果为空,返回false");
-    } else {
-      console.log("如果不为空,返回true");
-    }
+    this.setPackage();
   },
   activated() {
-    if (JSON.stringify(this.$route.query) === "{}") {
-      console.log("如果为空,返回false");
-    } else {
-      console.log("如果不为空,返回true");
-    }
+    this.setPackage();
   },
   methods: {
+    setPackage() {
+      let query = this.$route.query;
+      if (JSON.stringify(query) === "{}") {
+        this.packageText = "套餐类型/意向日期/人群";
+      } else {
+        this.packageText = `${query.p_title}/${query.time}/人群`;
+        console.log("如果不为空,返回true");
+      }
+    },
     goComment() {
       this.$router.push({
         path: "/commentList"
