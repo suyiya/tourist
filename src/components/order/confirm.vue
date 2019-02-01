@@ -2,7 +2,7 @@
   <div>
     <p class="text3">产品信息</p>
     <div class="pd16 bg-white">
-      <info-bar/>
+      <info-bar :time="query.time" :imageUrl="query.imageUrl" :title="query.title" :amount="query.amount"/>
     </div>
     <p class="text3">预订人信息</p>
     <div class="cus-info">
@@ -25,7 +25,7 @@
       <div class="submit-bar">
         <div class="submit-price">
           <p class="text1">总价</p>
-          <p class="c-green text2">￥2048</p>
+          <p class="c-green text2">￥{{query.price * query.amount}}</p>
         </div>
         <div class="bg-green submit-btn" @click="submit()">提交订单</div>
       </div>
@@ -42,8 +42,12 @@ export default {
     return {
       name: "",
       phone: "",
-      email: ""
+      email: "",
+      query: this.$route.query
     };
+  },
+  activated() {
+    this.query = this.$route.query;
   },
   methods: {
     submit() {

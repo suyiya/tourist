@@ -3,13 +3,13 @@
     <div class="top bg-green c-white">
       <div class="top-bar">
         <p>订单待支付</p>
-        <p>¥2480.00</p>
+        <p>¥{{data.realpay}}</p>
       </div>
       <p class="f11">剩22小时4分自动关闭</p>
     </div>
     <div class="product-info">
       <p class="title">产品信息</p>
-      <info-bar/>
+      <info-bar :time="data.start_time" :title="data.title" :imageUrl="data.main_thumb_urls"/>
     </div>
     <div class="cust-info">
       <p class="title">预订人信息</p>
@@ -63,7 +63,7 @@ export default {
         owner_id: 0,
         status: 0,
         discount: 1,
-        realpay: 1,
+        realpay: 1999,
         tid: 1,
         price_id: 1,
         start_time: "2018-12-12 00:00:00",

@@ -5,7 +5,7 @@
       <p>待支付</p>
     </div>
     <div class="order-middle">
-      <InfoBar/>
+      <InfoBar :time="data.start_time" :imageUrl="data.main_thumb_urls" :title="data.title"/>
     </div>
     <div class="order-bottom">
       <p>

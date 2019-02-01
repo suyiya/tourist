@@ -10,10 +10,10 @@
       <p>选择：{{packageText}}</p>
       <img src="@/assets/btn_jiantou_xiao.png">
     </div>
-    <div class="comment bg-white" @click="goComment()">
+    <div class="comment bg-white">
       <div class="comment-total">
         <p>玩家点评（52）</p>
-        <p>
+        <p @click="goComment()">
           查看全部
           <img src="@/assets/btn_jiantou_xiao_lv.png">
         </p>
@@ -88,7 +88,11 @@ export default {
       if (query.amount) {
         this.$router.push({
           path: "/orderConfirm",
-          query: this.$route.query
+          query: {
+            ...this.$route.query,
+            imageUrl: this.data.main_thumb_urls,
+            title: this.data.title
+          }
         });
       } else {
         this.$router.push({
@@ -98,7 +102,8 @@ export default {
     },
     goPackage() {
       this.$router.push({
-        path: "/productPackage"
+        path: "/productPackage",
+        query: this.$route.query
       });
     }
   },

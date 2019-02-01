@@ -63,6 +63,7 @@ export default {
   data() {
     return {
       pickerVisible: false,
+      dateVal: new Date(),
       startDate: new Date(),
       time: new Date().format("YYYY-MM-dd"),
       peopleType: 1,
@@ -109,7 +110,16 @@ export default {
         break;
       }
     }
-    this.dateVal = new Date("2019-2-2");
+  },
+  activated() {
+    console.log("activeted")
+    let query = this.$route.query;
+    if (query.time) {
+      this.dateVal = new Date(query.time);
+      this.amount = query.amount * 1;
+      this.totalPrice = this.amount * query.price;
+      this.time = query.time;
+    }
   },
   methods: {
     showPicker() {

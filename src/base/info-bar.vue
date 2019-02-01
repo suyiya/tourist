@@ -1,13 +1,13 @@
 <template>
   <div class="product-info-bar">
     <div class="product-left">
-      <img/>
+      <img :src="imageUrl">
     </div>
     <div class="product-right">
-      <p class="text5">泰国清迈高尔夫之旅3天2晚1球半日观光</p>
+      <p class="text5">{{title}}</p>
       <p class="text4">套餐类型：绿谷球场+大岛球场，入住慧兰娜</p>
-      <p class="text4">意向日期: 2019-01-18</p>
-      <p class="text4">购买数量: 成人x1</p>
+      <p class="text4">意向日期: {{time}}</p>
+      <p class="text4">购买数量: 成人x{{amount}}</p>
     </div>
   </div>
 </template>
@@ -15,6 +15,7 @@
 <script>
 export default {
   name: "InfoBar",
+  props: ["time","imageUrl","title","amount"],
   data() {
     return {
       msg: "Welcome to Your Vue.js App"
@@ -45,7 +46,6 @@ export default {
 .product-left img {
   width: 54px;
   height: 54px;
-  background: green;
   border-radius: 5px;
 }
 .product-right {
