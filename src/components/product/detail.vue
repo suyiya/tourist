@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import { getTravelProductInfo } from "@/middleware/product";
 export default {
   name: "ProductDetail",
   data() {
@@ -62,6 +63,9 @@ export default {
       }
     };
   },
+  created() {
+    this._getTravelProductInfo();
+  },
   mounted() {
     this.setPackage();
   },
@@ -69,6 +73,11 @@ export default {
     this.setPackage();
   },
   methods: {
+    _getTravelProductInfo() {
+      getTravelProductInfo().then(res => {
+        console.log(res);
+      });
+    },
     setPackage() {
       let query = this.$route.query;
       if (query.amount) {

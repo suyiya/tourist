@@ -58,6 +58,7 @@
 </template>
 
 <script>
+import { getTravelProductAllPrice } from "@/middleware/product";
 export default {
   name: "Package",
   data() {
@@ -112,7 +113,7 @@ export default {
     }
   },
   activated() {
-    console.log("activeted")
+    console.log("activeted");
     let query = this.$route.query;
     if (query.time) {
       this.dateVal = new Date(query.time);
@@ -122,6 +123,11 @@ export default {
     }
   },
   methods: {
+    _getTravelProductAllPrice() {
+      getTravelProductAllPrice().then(res => {
+        console.log(res);
+      });
+    },
     showPicker() {
       this.pickerVisible = true;
       this.$refs.picker.open();

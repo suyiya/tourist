@@ -6,6 +6,7 @@
 
 <script>
 import InfoBig from "@/base/info-big";
+import { getTravelProductList } from "@/middleware/product";
 export default {
   name: "ProductList",
   data() {
@@ -79,6 +80,16 @@ export default {
   },
   components: {
     InfoBig
+  },
+  created() {
+    this._getTravelProductList();
+  },
+  methods: {
+    _getTravelProductList() {
+      getTravelProductList().then(res => {
+        console.log(res);
+      });
+    }
   }
 };
 </script>

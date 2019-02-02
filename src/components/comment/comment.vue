@@ -26,6 +26,7 @@
 <script>
 import StarList from "@/base/star-list";
 import { Toast } from "mint-ui";
+import { commentTravel } from "@/middleware/comment";
 export default {
   name: "Comment",
   data() {
@@ -60,6 +61,11 @@ export default {
     getCourtNum(num) {
       console.log(num);
       this.courtNum = num;
+    },
+    _commentTravel() {
+      commentTravel().then(res => {
+        console.log(res);
+      });
     }
   }
 };

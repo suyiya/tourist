@@ -19,6 +19,7 @@
 
 <script>
 import OrderItem from "@/base/order-item";
+import { getOrderList } from "@/middleware/order";
 export default {
   name: "OrderList",
   data() {
@@ -56,12 +57,20 @@ export default {
       ]
     };
   },
+  created() {
+    this._getOrderList();
+  },
   components: {
     OrderItem
   },
   methods: {
     changeNav(index) {
       this.navType = index;
+    },
+    _getOrderList() {
+      getOrderList().then(res => {
+        console.log(res);
+      });
     }
   }
 };
