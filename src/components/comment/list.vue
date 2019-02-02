@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import { getTravelProductComments } from "@/middleware/comment";
 export default {
   name: "CommentList",
   data() {
@@ -46,7 +47,19 @@ export default {
       ]
     };
   },
-  components: {}
+  components: {},
+  created() {
+    this._getTravelProductComments();
+  },
+  methods:{
+    _getTravelProductComments(){
+      getTravelProductComments().then((res)=>{
+        console.log(res)
+      }).catch((err)=>{
+        console.log(err)
+      })
+    },
+  }
 };
 </script>
 

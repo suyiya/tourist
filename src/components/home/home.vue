@@ -56,6 +56,7 @@ import Tab from "@/components/tab/tab";
 import InfoSmall from "@/base/info-small";
 import DistrictItem from "@/base/district-item";
 import { Indicator } from "mint-ui";
+import { getTravelProductList } from "@/middleware/product";
 export default {
   name: "Home",
   data() {
@@ -134,6 +135,7 @@ export default {
   },
   created() {
     // Indicator.close();
+    this._getTravelProductList();
   },
   mounted() {
     // Indicator.open();
@@ -143,6 +145,11 @@ export default {
       this.$router.push({
         path: "/productList"
       });
+    },
+    _getTravelProductList(){
+      getTravelProductList().then((res)=>{
+        console.log(res)
+      })
     }
   }
 };
