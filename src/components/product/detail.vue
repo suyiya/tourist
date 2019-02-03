@@ -35,6 +35,7 @@
 
 <script>
 import { getTravelProductInfo } from "@/middleware/product";
+import { getTravelProductComments } from "@/middleware/comment";
 export default {
   name: "ProductDetail",
   data() {
@@ -65,6 +66,7 @@ export default {
   },
   created() {
     this._getTravelProductInfo();
+    this._getTravelProductComments();
   },
   mounted() {
     this.setPackage();
@@ -77,6 +79,18 @@ export default {
       getTravelProductInfo(params).then(res => {
         console.log(res);
       });
+    },
+    _getTravelProductComments() {
+      let params = {
+        travelId: this.$route.query.id
+      };
+      getTravelProductComments(params)
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          console.log(err);
+        });
     },
     setPackage() {
       let query = this.$route.query;
@@ -92,6 +106,9 @@ export default {
       });
     },
 
+    /**
+     * 预定
+     */
     reserve() {
       let query = this.$route.query;
       if (query.amount) {
@@ -109,6 +126,9 @@ export default {
         });
       }
     },
+    /**
+     * 选择套餐
+     */
     goPackage() {
       this.$router.push({
         path: "/productPackage",
