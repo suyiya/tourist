@@ -30,8 +30,8 @@ export default {
           comments_uid: 18,
           create_time: "2019-01-08 20:47:18",
           comments_pic_urls: "",
-          comment_uname:"韩*桦1",
-          comment_thumb:"",
+          comment_uname: "韩*桦1",
+          comment_thumb: "",
           id: 1
         },
         {
@@ -44,8 +44,8 @@ export default {
           comments_uid: 18,
           create_time: "2019-01-08 20:47:20",
           comments_pic_urls: "",
-          comment_uname:"韩*桦2",
-          comment_thumb:"",
+          comment_uname: "韩*桦2",
+          comment_thumb: "",
           id: 1
         }
       ]
@@ -55,14 +55,19 @@ export default {
   created() {
     this._getTravelProductComments();
   },
-  methods:{
-    _getTravelProductComments(){
-      getTravelProductComments().then((res)=>{
-        console.log(res)
-      }).catch((err)=>{
-        console.log(err)
-      })
-    },
+  methods: {
+    _getTravelProductComments() {
+      let params = {
+        travelId: 1
+      };
+      getTravelProductComments(params)
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
   }
 };
 </script>

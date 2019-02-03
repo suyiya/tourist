@@ -1,6 +1,6 @@
 import originJsonp from 'jsonp'
 
-const host = 'http://172.12.120.252:8080';
+const host = 'https://47.97.198.242:58443';
 export default function jsonp(url, data, option) {
   url += (url.indexOf('?') < 0 ? '?' : '&') + param(data)
 

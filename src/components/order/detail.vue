@@ -58,6 +58,7 @@
 
 <script>
 import InfoBar from "@/base/info-bar";
+import { getTravelOrderInfo } from "@/middleware/order";
 export default {
   name: "OrderDetail",
   data() {
@@ -100,6 +101,9 @@ export default {
   components: {
     InfoBar
   },
+  created() {
+    this._getTravelOrderInfo();
+  },
   methods: {
     submit(index) {
       console.log(index);
@@ -115,6 +119,12 @@ export default {
           path: "/orderConfirm"
         });
       }
+    },
+    _getTravelOrderInfo() {
+      let params = {};
+      getTravelOrderInfo().then(res => {
+        console.log(res);
+      });
     }
   }
 };

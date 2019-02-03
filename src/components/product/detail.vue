@@ -12,7 +12,7 @@
     </div>
     <div class="comment bg-white">
       <div class="comment-total">
-        <p>玩家点评（52）</p>
+        <p>玩家点评</p>
         <p @click="goComment()">
           查看全部
           <img src="@/assets/btn_jiantou_xiao_lv.png">
@@ -74,7 +74,10 @@ export default {
   },
   methods: {
     _getTravelProductInfo() {
-      getTravelProductInfo().then(res => {
+      let params = {
+        tid: this.$route.query.id
+      };
+      getTravelProductInfo(params).then(res => {
         console.log(res);
       });
     },

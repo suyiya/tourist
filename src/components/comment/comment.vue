@@ -49,6 +49,7 @@ export default {
       let params ={
 
       }
+      this._commentTravel();
       this.$router.push({
         path: "/orderList"
       });

@@ -17,7 +17,7 @@
       <span>{{time}}</span>
       <img src="@/assets/btn_jiantou_xiao.png">
     </div>
-    <div class="title">出游人群</div>
+    <!-- <div class="title">出游人群</div> -->
     <!-- <div class="people">
       <div class="people-bar">
         <p @click="choosePeople(1)" :class="peopleType==1?'selected':''">成人</p>
