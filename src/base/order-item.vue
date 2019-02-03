@@ -1,11 +1,17 @@
 <template>
   <div class="order-item" @click="goOrderDetail()">
     <div class="order-top">
-      <p>订单编号：32168431664313</p>
+      <p>订单编号：{{data.hashId}}</p>
       <p>待支付</p>
     </div>
     <div class="order-middle">
-      <InfoBar :time="data.start_time" :imageUrl="data.main_thumb_urls" :title="data.title"/>
+      <InfoBar
+        :time="data.start_time"
+        :imageUrl="data.main_thumb_urls"
+        :title="data.title"
+        :p_title="data.p_title"
+        :amount="data.pcs"
+      />
     </div>
     <div class="order-bottom">
       <p>
@@ -35,7 +41,10 @@ export default {
   methods: {
     goOrderDetail() {
       this.$router.push({
-        path: "/orderDetail"
+        path: "/orderDetail",
+        query: {
+          id: this.data.id
+        }
       });
     }
   }

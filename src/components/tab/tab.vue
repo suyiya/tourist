@@ -4,7 +4,7 @@
       <router-link tag="div" class="tab-item" to="/">
         <div class="tab-link home" :class="tabIndex==1?'home-sel c-green':'home'">首页</div>
       </router-link>
-      <router-link tag="div" class="tab-item" to="/message">
+      <router-link tag="div" class="tab-item" to="/messageList">
         <p class="tab-link message" :class="tabIndex==2?'message-sel c-green':'message'">消息</p>
       </router-link>
       <router-link tag="div" class="tab-item" to="/user">

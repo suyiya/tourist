@@ -6,13 +6,13 @@
         <star-list v-on:getNum="getRouteNum"/>
       </div>
       <div class="star-bar">
-        <p>酒店</p>
-        <star-list v-on:getNum="getHotelNum"/>
+        <p>服务</p>
+        <star-list v-on:getNum="getServiceNum"/>
       </div>
-      <div class="star-bar">
+      <!-- <div class="star-bar">
         <p>球场</p>
         <star-list v-on:getNum="getCourtNum"/>
-      </div>
+      </div> -->
     </div>
     <div class="comment">
       <textarea v-model="content" placeholder="您的评价会帮助其他球友了解这个套餐"/>
@@ -32,7 +32,7 @@ export default {
   data() {
     return {
       routeNum: 1,
-      hotelNum: 1,
+      serviceNum: 1,
       courtNum: 1,
       content: ""
     };
@@ -46,6 +46,9 @@ export default {
         Toast("请输入评价内容！");
         return;
       }
+      let params ={
+
+      }
       this.$router.push({
         path: "/orderList"
       });
@@ -54,7 +57,7 @@ export default {
       console.log(num);
       this.routeNum = num;
     },
-    getHotelNum(num) {
+    getServiceNum(num) {
       console.log(num);
       this.hotelNum = num;
     },

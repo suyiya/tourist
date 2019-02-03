@@ -1,11 +1,15 @@
 <template>
-  <div class="message-list">
-    <message-item v-for="item in message_list" :key="item.Id" :data="item"/>
+  <div>
+    <div class="message-list">
+      <message-item v-for="item in message_list" :key="item.Id" :data="item"/>
+    </div>
+    <tab :tabIndex="2"></tab>
   </div>
 </template>
 
 <script>
 import MessageItem from "@/base/message-item";
+import Tab from "@/components/tab/tab";
 export default {
   name: "MessageList",
   data() {
@@ -28,7 +32,8 @@ export default {
     console.log(this.$route);
   },
   components: {
-    MessageItem
+    MessageItem,
+    Tab
   }
 };
 </script>

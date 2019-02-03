@@ -18,13 +18,12 @@
       <img src="@/assets/btn_jiantou_xiao.png">
     </div>
     <div class="title">出游人群</div>
-    <div class="people">
+    <!-- <div class="people">
       <div class="people-bar">
         <p @click="choosePeople(1)" :class="peopleType==1?'selected':''">成人</p>
         <p @click="choosePeople(2)" :class="peopleType==2?'selected':''">儿童</p>
-        <p @click="choosePeople(3)" :class="peopleType==3?'selected':''">单人房差</p>
       </div>
-    </div>
+    </div> -->
     <div class="title">购买数量</div>
     <div class="amount">
       <div>数量</div>

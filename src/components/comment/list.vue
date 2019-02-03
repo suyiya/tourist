@@ -3,7 +3,7 @@
     <div :key="item.tid" v-for="item in travelCommentsList" class="mt10 pd16 bg-white">
       <div class="top">
         <div class="user-info">
-          <img :src="item.comments_pic_urls" class="avatar">
+          <img :src="item.comment_thumb" class="avatar">
           <span class="name">韩*桦</span>
         </div>
         <div class="date">{{item.create_time}}</div>
@@ -30,6 +30,8 @@ export default {
           comments_uid: 18,
           create_time: "2019-01-08 20:47:18",
           comments_pic_urls: "",
+          comment_uname:"韩*桦1",
+          comment_thumb:"",
           id: 1
         },
         {
@@ -42,6 +44,8 @@ export default {
           comments_uid: 18,
           create_time: "2019-01-08 20:47:20",
           comments_pic_urls: "",
+          comment_uname:"韩*桦2",
+          comment_thumb:"",
           id: 1
         }
       ]

@@ -81,9 +81,9 @@ export default {
     setPackage() {
       let query = this.$route.query;
       if (query.amount) {
-        this.packageText = `${query.p_title}/${query.time}/人群`;
+        this.packageText = `${query.p_title}/${query.time}/${query.amount}`;
       } else {
-        this.packageText = "套餐类型/意向日期/人群";
+        this.packageText = "套餐类型/意向日期/数量";
       }
     },
     goComment() {

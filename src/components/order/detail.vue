@@ -9,32 +9,38 @@
     </div>
     <div class="product-info">
       <p class="title">产品信息</p>
-      <info-bar :time="data.start_time" :title="data.title" :imageUrl="data.main_thumb_urls"/>
+      <info-bar
+        :time="data.start_time"
+        :title="data.title"
+        :imageUrl="data.main_thumb_urls"
+        :amount="data.pcs"
+        :p_title="data.p_title"
+      />
     </div>
     <div class="cust-info">
       <p class="title">预订人信息</p>
       <p class="content">
         联系人：
-        <span>都璟秀</span>
+        <span>{{data.contact_name}}</span>
       </p>
       <p class="content">
         手机号：
-        <span>15868489095</span>
+        <span>{{data.contact_phone}}</span>
       </p>
       <p class="content">
         邮箱：
-        <span>doujingxiu128@gm</span>
+        <span>{{data.contact_email}}</span>
       </p>
     </div>
     <div class="order-info">
       <p class="title">订单信息</p>
       <p class="content">
         订单编号：
-        <span>254712239113095</span>
+        <span>{{data.hashId}}</span>
       </p>
       <p class="content">
         创建时间：
-        <span>2018-12-06 15:22</span>
+        <span>{{data.create_time}}</span>
       </p>
     </div>
     <div class="pay-method">
@@ -61,7 +67,7 @@ export default {
         create_time: "2019-01-08 20:10:00",
         buyer_id: 18,
         owner_id: 0,
-        status: 0,
+        status: 0, // 0 待支付 1 已支付 2 已评价结束
         discount: 1,
         realpay: 1999,
         tid: 1,
@@ -82,6 +88,11 @@ export default {
         exceptions: "this is exception of travel product",
         title: "first travel",
         subtitle: "first travel in shanghai 3 days",
+        pcs: 2,
+        p_title: "标配行程价3",
+        contact_name: "都璟秀",
+        contact_phone: "15868489095",
+        contact_email: "doujingxiu128@gm",
         id: 1
       }
     };
@@ -94,11 +105,14 @@ export default {
       console.log(index);
       if (index == 0) {
         this.$router.push({
-          path: "/comment"
+          path: "/comment",
+          query: {
+            id: this.data.id
+          }
         });
       } else {
         this.$router.push({
-          path: ""
+          path: "/orderConfirm"
         });
       }
     }

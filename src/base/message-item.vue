@@ -26,7 +26,12 @@ export default {
   components: {},
   methods: {
     clickMessage() {
-      console.log(1111);
+      this.$router.push({
+        path: "/orderDetail",
+        query: {
+          id: this.data.orderId
+        }
+      });
     }
   }
 };

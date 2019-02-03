@@ -52,6 +52,8 @@ export default {
           exceptions: "this is exception of travel product",
           title: "first travel",
           subtitle: "first travel in shanghai 3 days",
+          pcs: 3,
+          p_title:'标配行程价3',
           id: 1
         }
       ]
