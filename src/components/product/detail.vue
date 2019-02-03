@@ -69,9 +69,6 @@ export default {
   mounted() {
     this.setPackage();
   },
-  activated() {
-    this.setPackage();
-  },
   methods: {
     _getTravelProductInfo() {
       let params = {

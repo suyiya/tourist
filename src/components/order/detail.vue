@@ -2,10 +2,10 @@
   <div>
     <div class="top bg-green c-white">
       <div class="top-bar">
-        <p>订单待支付</p>
+        <p>订单{{getStatus}}</p>
         <p>¥{{data.realpay}}</p>
       </div>
-      <p class="f11">剩22小时4分自动关闭</p>
+      <!-- <p class="f11">剩22小时4分自动关闭</p> -->
     </div>
     <div class="product-info">
       <p class="title">产品信息</p>
@@ -50,8 +50,8 @@
       </p>
     </div>
     <div class="blank"></div>
-    <div class="footer bg-white">
-      <div class="botton bg-green" @click="submit(0)">去点评</div>
+    <div class="footer bg-white" v-if="data.status!=2">
+      <div class="botton bg-green" @click="submit()">{{data.status==0?'去支付':'去点评'}}</div>
     </div>
   </div>
 </template>
@@ -68,7 +68,7 @@ export default {
         create_time: "2019-01-08 20:10:00",
         buyer_id: 18,
         owner_id: 0,
-        status: 0, // 0 待支付 1 已支付 2 已评价结束
+        status: 1, // 0 待支付 1 已支付 2 已评价结束
         discount: 1,
         realpay: 1999,
         tid: 1,
@@ -98,6 +98,20 @@ export default {
       }
     };
   },
+  computed: {
+    getStatus() {
+      let status = this.data.status; // 0 待支付 1 已支付 2 已评价结束
+      if (status == 0) {
+        return "待支付";
+      } else if (status == 1) {
+        return "已支付";
+      } else if (status == 2) {
+        return "已完成";
+      } else {
+        return "";
+      }
+    }
+  },
   components: {
     InfoBar
   },
@@ -105,18 +119,16 @@ export default {
     this._getTravelOrderInfo();
   },
   methods: {
-    submit(index) {
-      console.log(index);
-      if (index == 0) {
+    submit() {
+      let status = this.data.status;
+      if (status == 0) {
+        console.log("去支付")
+      } else if (status == 1) {
         this.$router.push({
           path: "/comment",
           query: {
             id: this.data.id
           }
-        });
-      } else {
-        this.$router.push({
-          path: "/orderConfirm"
         });
       }
     },

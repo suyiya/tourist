@@ -2,7 +2,7 @@
   <div class="order-item" @click="goOrderDetail()">
     <div class="order-top">
       <p>订单编号：{{data.hashId}}</p>
-      <p>待支付</p>
+      <p>{{getStatus}}</p>
     </div>
     <div class="order-middle">
       <InfoBar
@@ -37,6 +37,20 @@ export default {
   },
   created() {
     console.log(this.data);
+  },
+  computed: {
+    getStatus() {
+      let status = this.data.status; // 0 待支付 1 已支付 2 已评价结束
+      if (status == 0) {
+        return "待支付";
+      } else if (status == 1) {
+        return "待评价";
+      } else if (status == 2) {
+        return "已完成";
+      } else {
+        return "";
+      }
+    }
   },
   methods: {
     goOrderDetail() {

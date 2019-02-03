@@ -2,7 +2,13 @@
   <div>
     <p class="text3">产品信息</p>
     <div class="pd16 bg-white">
-      <info-bar :time="query.time" :imageUrl="query.imageUrl" :title="query.title" :amount="query.amount"/>
+      <info-bar
+        :time="query.time"
+        :imageUrl="query.imageUrl"
+        :title="query.title"
+        :p_title="query.p_title"
+        :amount="query.amount"
+      />
     </div>
     <p class="text3">预订人信息</p>
     <div class="cus-info">
@@ -46,7 +52,7 @@ export default {
       query: this.$route.query
     };
   },
-  activated() {
+  mounted() {
     this.query = this.$route.query;
   },
   methods: {

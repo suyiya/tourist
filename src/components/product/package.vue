@@ -23,7 +23,7 @@
         <p @click="choosePeople(1)" :class="peopleType==1?'selected':''">成人</p>
         <p @click="choosePeople(2)" :class="peopleType==2?'selected':''">儿童</p>
       </div>
-    </div> -->
+    </div>-->
     <div class="title">购买数量</div>
     <div class="amount">
       <div>数量</div>
@@ -102,6 +102,7 @@ export default {
     };
   },
   created() {
+    this._getTravelProductAllPrice();
     for (let i = 0; i < this.travelProductPriceList.length; i++) {
       let travel = this.travelProductPriceList[i];
       if (travel.is_default == 1) {
@@ -111,8 +112,8 @@ export default {
       }
     }
   },
-  activated() {
-    console.log("activeted");
+  mounted() {
+    console.log("mounted");
     let query = this.$route.query;
     if (query.time) {
       this.dateVal = new Date(query.time);
