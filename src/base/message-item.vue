@@ -1,7 +1,7 @@
 <template>
   <div class="message-item">
     <div class="time">
-      <p>2018-10-10 15:30</p>
+      <p>{{data.notify_time}}</p>
     </div>
     <div class="container">
       <p>开局提醒</p>

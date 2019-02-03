@@ -2,10 +2,10 @@
   <div>
     <div class="top">
       <div class="top-content">
-        <img src="@/assets/icon_zhuli.png" style="width:60px;height:60px;margin-right:16px;">
+        <img :src="data.thumb_url" style="width:60px;height:60px;margin-right:16px;">
         <div>
-          <p class="f17 c-white">乔丹·斯皮思</p>
-          <p class="f14 c-white">我的个人签名</p>
+          <p class="f17 c-white">{{data.nick_name}}</p>
+          <p class="f14 c-white">{{data.introduce}}</p>
         </div>
       </div>
     </div>
@@ -31,7 +31,11 @@ export default {
   name: "User",
   data() {
     return {
-      msg: "Welcome to Your Vue.js App"
+      data: {
+        nick_name: "乔丹·斯皮思",
+        thumb_url: require("@/assets/icon_zhuli.png"),
+        introduce: "我的个人签名"
+      }
     };
   },
   components: {
