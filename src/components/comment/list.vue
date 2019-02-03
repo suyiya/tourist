@@ -58,7 +58,7 @@ export default {
   methods: {
     _getTravelProductComments() {
       let params = {
-        travelId: 1
+        travelId: this.$route.query.id
       };
       getTravelProductComments(params)
         .then(res => {

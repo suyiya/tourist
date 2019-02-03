@@ -20,11 +20,11 @@
       </div>
       <div class="comment-user">
         <p>
-          <img src="@/assets/icon_wode_sel.png">薛*凝
+          <img :src="comment.comment_thumb">{{comment.comment_uname}}
         </p>
-        <p>2018-11-20 15:32</p>
+        <p>{{comment.create_time}}</p>
       </div>
-      <div class="comment-content">性价比很高的一次高尔夫之旅哦，喜欢曼谷，入住 酒店、交通出行、美食享用、景点游玩都安排的…</div>
+      <div class="comment-content">{{comment.comments}}</div>
     </div>
     <div class="introduce">详情介绍</div>
     <div class="footer bg-white">
@@ -41,6 +41,20 @@ export default {
   data() {
     return {
       packageText: "套餐类型/意向日期/人群",
+      comment: {
+        travel_type: 0,
+        tid: 1,
+        torder_id: 1,
+        comments: "It's good for me!",
+        service_stars: 5,
+        way_stars: 4,
+        comments_uid: 18,
+        create_time: "2019-01-08 20:47:18",
+        comments_pic_urls: "",
+        comment_uname: "韩*桦1",
+        comment_thumb: "",
+        id: 1
+      },
       data: {
         point_name: "shanghai",
         days: 3,
@@ -72,6 +86,9 @@ export default {
     this.setPackage();
   },
   methods: {
+    /**
+     * 获取产品信息
+     */
     _getTravelProductInfo() {
       let params = {
         tid: this.$route.query.id
@@ -80,6 +97,9 @@ export default {
         console.log(res);
       });
     },
+    /**
+     * 获取评价列表
+     */
     _getTravelProductComments() {
       let params = {
         travelId: this.$route.query.id
@@ -102,7 +122,10 @@ export default {
     },
     goComment() {
       this.$router.push({
-        path: "/commentList"
+        path: "/commentList",
+        query: {
+          id: this.$route.query.id
+        }
       });
     },
 
