@@ -20,13 +20,21 @@
       </div>
       <div class="comment-user">
         <p>
-          <img :src="comment.comment_thumb">{{comment.comment_uname}}
+          <img :src="comment.comment_thumb">
+          {{comment.comment_uname}}
         </p>
         <p>{{comment.create_time}}</p>
       </div>
       <div class="comment-content">{{comment.comments}}</div>
     </div>
-    <div class="introduce">详情介绍</div>
+    <div class="introduce">
+      <div class="title">
+        <div :class="introIndex==0?'selected':''" @click="selectIntro(0)">详情介绍</div>
+        <div :class="introIndex==1?'selected':''" @click="selectIntro(1)">预定须知</div>
+      </div>
+      <div v-if="introIndex==0">详情介绍</div>
+      <div v-if="introIndex!=0">预定须知</div>
+    </div>
     <div class="footer bg-white">
       <div class="botton bg-green" @click="reserve()">立即预定</div>
     </div>
@@ -40,6 +48,7 @@ export default {
   name: "ProductDetail",
   data() {
     return {
+      introIndex: 0,
       packageText: "套餐类型/意向日期/人群",
       comment: {
         travel_type: 0,
@@ -157,6 +166,12 @@ export default {
         path: "/productPackage",
         query: this.$route.query
       });
+    },
+    /**
+     * 选择详情说明
+     */
+    selectIntro(index) {
+      this.introIndex = index;
     }
   },
   watch: {
@@ -267,6 +282,27 @@ export default {
   background: white;
   margin-top: 10px;
   margin-bottom: 70px;
+}
+.introduce .title {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid #383838;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.introduce .title div {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  height: 34px;
+  line-height: 34px;
+  background: white;
+  font-size: 13px;
+  color: #383838;
+}
+.introduce .title .selected {
+  background: #383838;
+  color: white;
 }
 .footer {
   height: 63px;
