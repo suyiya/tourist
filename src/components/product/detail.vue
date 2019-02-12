@@ -32,8 +32,18 @@
         <div :class="introIndex==0?'selected':''" @click="selectIntro(0)">详情介绍</div>
         <div :class="introIndex==1?'selected':''" @click="selectIntro(1)">预定须知</div>
       </div>
-      <div v-if="introIndex==0">详情介绍</div>
-      <div v-if="introIndex!=0">预定须知</div>
+      <div class="container" v-if="introIndex==0">
+        <div class="con-title">
+          <div class="longLine"></div>
+          <div>详情介绍</div>
+        </div>
+      </div>
+      <div class="container" v-if="introIndex!=0">
+        <div class="con-title">
+          <div class="longLine"></div>
+          <div>预定须知</div>
+        </div>
+      </div>
     </div>
     <div class="footer bg-white">
       <div class="botton bg-green" @click="reserve()">立即预定</div>
@@ -303,6 +313,22 @@ export default {
 .introduce .title .selected {
   background: #383838;
   color: white;
+}
+.introduce .container {
+  margin-top: 26px;
+}
+.con-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: #383838;
+  font-size: 18px;
+}
+.longLine {
+  width: 3px;
+  height: 18px;
+  background: #00c759;
+  margin-right: 8px;
 }
 .footer {
   height: 63px;
