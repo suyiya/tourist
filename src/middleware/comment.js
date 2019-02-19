@@ -1,5 +1,4 @@
-import jsonp from './jsonp'
-import { commonParams, options } from './config'
+import ajax from './ajax'
 
 /**
  * 获取评论列表
@@ -8,8 +7,8 @@ import { commonParams, options } from './config'
 export function getTravelProductComments(params) {
     const url = '/travel/getTravelProductComments'
 
-    const data = Object.assign({}, commonParams, params)
-    return jsonp(url, data, options)
+    const data = Object.assign({}, params)
+    return ajax(url, data)
 }
 
 /**
@@ -18,6 +17,6 @@ export function getTravelProductComments(params) {
  */
 export function commentTravel(params) {
     const url = "/travel/order/commentTravel"
-    const data = Object.assign({}, commonParams, params)
-    return jsonp(url, data, options)
+    const data = Object.assign({}, params)
+    return ajax(url, data)
 }

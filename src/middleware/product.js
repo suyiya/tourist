@@ -1,5 +1,4 @@
-import jsonp from './jsonp'
-import { commonParams, options } from './config'
+import ajax from './ajax'
 
 /**
  * 旅游产品列表
@@ -8,8 +7,8 @@ import { commonParams, options } from './config'
 export function getTravelProductList(params) {
     const url = '/travel/getTravelProductList'
 
-    const data = Object.assign({}, commonParams, params)
-    return jsonp(url, data, options)
+    const data = Object.assign({}, params)
+    return ajax(url, data)
 }
 
 /**
@@ -18,8 +17,8 @@ export function getTravelProductList(params) {
  */
 export function getTravelProductInfo(params) {
     const url = "/travel/getTravelProductInfo"
-    const data = Object.assign({}, commonParams, params)
-    return jsonp(url, data, options)
+    const data = Object.assign({}, params)
+    return ajax(url, data)
 }
 
 /**
@@ -28,6 +27,6 @@ export function getTravelProductInfo(params) {
  */
 export function getTravelProductAllPrice(params) {
     const url = "/travel/getTravelProductAllPrice"
-    const data = Object.assign({}, commonParams, params)
-    return jsonp(url, data, options)
+    const data = Object.assign({}, params)
+    return ajax(url, data)
 }

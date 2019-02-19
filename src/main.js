@@ -8,6 +8,8 @@ import 'mint-ui/lib/style.css'
 import './common/utility/date'
 import './common/utility/util'
 import './common/utility/wx'
+var $ = require('jquery');
+window.$ = $;
 
 Vue.config.productionTip = false
 Vue.use(MintUI)

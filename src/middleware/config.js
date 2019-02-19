@@ -1,5 +1,5 @@
 export const commonParams = {
-  format: 'jsonp'
+  format: 'json'
 }
 
 export const options = {
