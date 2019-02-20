@@ -79,7 +79,7 @@ export default {
       let params = {
         tid: this.$route.query.id,
         price_id: this.$route.query.price_id,
-        start_time: this.$route.query.time,
+        start_time: `${this.$route.query.time} 00:00:00`,
         pcs: this.$route.query.amount,
         contact_name: this.name,
         contact_phone: this.phone,
@@ -90,7 +90,7 @@ export default {
         this.$router.push({
           path: "/orderDetail",
           query: {
-            id: this.$route.query.id
+            id: res.data.Id
           }
         });
       });

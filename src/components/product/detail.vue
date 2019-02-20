@@ -54,6 +54,7 @@
 <script>
 import { getTravelProductInfo } from "@/middleware/product";
 import { getTravelProductComments } from "@/middleware/comment";
+import { Indicator } from "mint-ui";
 export default {
   name: "ProductDetail",
   data() {
@@ -89,18 +90,21 @@ export default {
      * 获取产品信息
      */
     _getTravelProductInfo() {
+      Indicator.open();
       let params = {
         tid: this.$route.query.id
       };
       getTravelProductInfo(params).then(res => {
         console.log(res.data);
         this.data = res.data;
+        Indicator.close();
       });
     },
     /**
      * 获取评价列表
      */
     _getTravelProductComments() {
+      Indicator.open();
       let params = {
         travelId: this.$route.query.id
       };
@@ -111,6 +115,7 @@ export default {
           if (travelCommentsList.length > 0) {
             this.comment = travelCommentsList[0];
           }
+          Indicator.close();
         })
         .catch(err => {
           console.log(err);

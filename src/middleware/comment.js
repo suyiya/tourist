@@ -18,5 +18,5 @@ export function getTravelProductComments(params) {
 export function commentTravel(params) {
     const url = "/travel/order/commentTravel"
     const data = Object.assign({}, params)
-    return ajax(url, data)
+    return ajax(url, data, 'post')
 }

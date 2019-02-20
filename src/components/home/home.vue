@@ -61,7 +61,8 @@ export default {
   name: "Home",
   data() {
     return {
-      travelProductList: []
+      travelProductList: [],
+      pageNum: 1
     };
   },
   components: {
@@ -70,24 +71,27 @@ export default {
     DistrictItem
   },
   created() {
-    // Indicator.close();
     this._getTravelProductList();
   },
-  mounted() {
-    // Indicator.open();
-  },
+  mounted() {},
   methods: {
     clickMore() {
       this.$router.push({
         path: "/productList"
       });
     },
-    _getTravelProductList(){
-      getTravelProductList().then((res)=>{
-        console.log(res)
+    _getTravelProductList(pageNum, region) {
+      Indicator.open();
+      let params = {
+        pageNum: pageNum,
+        region: region
+      };
+      getTravelProductList().then(res => {
+        console.log(res);
         let travelProductList = res.data.travelProductList || [];
         this.travelProductList = travelProductList;
-      })
+        Indicator.close();
+      });
     }
   }
 };

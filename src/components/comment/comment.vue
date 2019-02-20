@@ -62,12 +62,12 @@ export default {
     },
     _commentTravel() {
       let params = {
-        torder_id: "",
-        tid: "",
-        travel_type: "", // 1 自营旅游路线 。2 用户上传旅游路线
-        comments: "",
-        service_stars: "",
-        way_stars: ""
+        torder_id: this.$route.query.torder_id,
+        tid: this.$route.query.tid,
+        travel_type: "1", // 1 自营旅游路线 。2 用户上传旅游路线
+        comments: this.content,
+        service_stars: this.serviceNum,
+        way_stars: this.routeNum
       };
       commentTravel(params).then(res => {
         console.log(res);

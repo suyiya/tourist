@@ -95,7 +95,8 @@ export default {
         this.$router.push({
           path: "/comment",
           query: {
-            id: this.data.id
+            tid: this.data.tid,
+            torder_id: this.data.id
           }
         });
       }

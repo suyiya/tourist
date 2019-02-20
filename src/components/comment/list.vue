@@ -4,7 +4,7 @@
       <div class="top">
         <div class="user-info">
           <img :src="item.comment_thumb" class="avatar">
-          <span class="name">韩*桦</span>
+          <span class="name">{{item.comment_uname}}</span>
         </div>
         <div class="date">{{item.create_time}}</div>
       </div>
@@ -15,40 +15,12 @@
 
 <script>
 import { getTravelProductComments } from "@/middleware/comment";
+import { Indicator } from "mint-ui";
 export default {
   name: "CommentList",
   data() {
     return {
-      travelCommentsList: [
-        {
-          travel_type: 0,
-          tid: 1,
-          torder_id: 1,
-          comments: "It's good for me!",
-          service_stars: 5,
-          way_stars: 4,
-          comments_uid: 18,
-          create_time: "2019-01-08 20:47:18",
-          comments_pic_urls: "",
-          comment_uname: "韩*桦1",
-          comment_thumb: "",
-          id: 1
-        },
-        {
-          travel_type: 0,
-          tid: 2,
-          torder_id: 1,
-          comments: "It's good for you!",
-          service_stars: 5,
-          way_stars: 4,
-          comments_uid: 18,
-          create_time: "2019-01-08 20:47:20",
-          comments_pic_urls: "",
-          comment_uname: "韩*桦2",
-          comment_thumb: "",
-          id: 1
-        }
-      ]
+      travelCommentsList: []
     };
   },
   components: {},
@@ -57,12 +29,16 @@ export default {
   },
   methods: {
     _getTravelProductComments() {
+      Indicator.open();
       let params = {
         travelId: this.$route.query.id
       };
       getTravelProductComments(params)
         .then(res => {
           console.log(res);
+          let travelCommentsList = res.data.travelCommentsList || [];
+          this.travelCommentsList = travelCommentsList;
+          Indicator.close();
         })
         .catch(err => {
           console.log(err);
