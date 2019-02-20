@@ -149,7 +149,8 @@ export default {
         });
       } else {
         this.$router.push({
-          path: "/productPackage"
+          path: "/productPackage",
+          query: this.$route.query
         });
       }
     },

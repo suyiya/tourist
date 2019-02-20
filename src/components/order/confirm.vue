@@ -42,6 +42,7 @@
 <script>
 import InfoBar from "@/base/info-bar";
 import { Toast } from "mint-ui";
+import { submitOrder } from "@/middleware/order";
 export default {
   name: "OrderConfirm",
   data() {
@@ -69,8 +70,23 @@ export default {
         Toast("请输入正确的邮箱！");
         return;
       }
-      this.$router.push({
-        path: "/orderDetail"
+      this._submitOrder();
+    },
+    /**
+     * 提交订单
+     */
+    _submitOrder() {
+      let params = {
+        tid: this.$route.query.id,
+        price_id: this.$route.query.price_id,
+        start_time: this.$route.query.time,
+        pcs: this.$route.query.amount
+      };
+      submitOrder(params).then(res => {
+        console.log(res);
+        this.$router.push({
+          path: "/orderDetail"
+        });
       });
     }
   },

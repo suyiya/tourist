@@ -8,7 +8,7 @@ export function submitOrder(params) {
     const url = '/travel/order/submitOrder'
 
     const data = Object.assign({}, params)
-    return ajax(url, data)
+    return ajax(url, data, 'post')
 }
 
 /**

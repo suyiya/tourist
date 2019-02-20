@@ -19,6 +19,9 @@ export default function ajax(url, data, type) {
       //  假设是跨域请求
       crossDomain: true,
       dataType: 'json', //默认是json
+      headers: {
+        Authorization: 'fa7eb92a06223f9078ca746935c9222572e0f3e1'
+      },
       success: function (res) {
         //  res返回的code不为 0 的 时候，说明你的请求有问题，这里和我们的主题没太大关系
         if (res.code == 200) {
