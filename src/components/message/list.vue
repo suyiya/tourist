@@ -11,22 +11,12 @@
 import MessageItem from "@/base/message-item";
 import Tab from "@/components/tab/tab";
 import { getMessage } from "@/middleware/message";
+import { Toast } from "mint-ui";
 export default {
   name: "MessageList",
   data() {
     return {
-      message_list: [
-        {
-          Id: 1,
-          m_type: 1,
-          message: "hahaha",
-          orderId: 1,
-          productId: 1,
-          notifyUId: 1,
-          notify_time: "2018-11-11 15:15:15",
-          relate_with: 1
-        }
-      ]
+      message_list: []
     };
   },
   created() {
@@ -37,11 +27,15 @@ export default {
       let params = {
         type: 2
       };
-      getMessage(params).then(res => {
-        console.log(res);
-        let message_list = res.data.message_list || [];
-        this.message_list = message_list;
-      });
+      getMessage(params)
+        .then(res => {
+          console.log(res);
+          let message_list = res.data.message_list || [];
+          this.message_list = message_list;
+        })
+        .catch(res => {
+          Toast(res.msg);
+        });
     }
   },
   components: {

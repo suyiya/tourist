@@ -5,7 +5,7 @@
     </div>
     <div class="product-right">
       <p class="text5">{{title}}</p>
-      <p class="text4">套餐类型：{{p_title}}</p>
+      <p class="text4">套餐类型: {{p_title}}</p>
       <p class="text4">意向日期: {{time}}</p>
       <p class="text4">购买数量: {{amount}}</p>
     </div>

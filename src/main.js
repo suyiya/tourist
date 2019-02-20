@@ -11,6 +11,9 @@ import './common/utility/wx'
 var $ = require('jquery');
 window.$ = $;
 
+var VConsole = require('vconsole');
+var vConsole = new VConsole();
+
 Vue.config.productionTip = false
 Vue.use(MintUI)
 /* eslint-disable no-new */

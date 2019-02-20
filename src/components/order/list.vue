@@ -37,12 +37,14 @@ export default {
   methods: {
     changeNav(index) {
       this.navType = index;
+      this._getOrderList();
     },
     _getOrderList() {
-      getOrderList().then(res => {
+      let params = {};
+      getOrderList(params).then(res => {
         console.log(res);
         let travel_order_list = res.data.travel_order_list || [];
-        this.travel_order_list = travel_order_list;
+        this.travel_order_list = this.travel_order_list.concat(travel_order_list);
       });
     }
   }
