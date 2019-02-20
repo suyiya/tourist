@@ -80,7 +80,10 @@ export default {
         tid: this.$route.query.id,
         price_id: this.$route.query.price_id,
         start_time: this.$route.query.time,
-        pcs: this.$route.query.amount
+        pcs: this.$route.query.amount,
+        contact_name: this.name,
+        contact_phone: this.phone,
+        contact_email: this.email
       };
       submitOrder(params).then(res => {
         console.log(res);
