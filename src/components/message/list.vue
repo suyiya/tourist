@@ -10,6 +10,7 @@
 <script>
 import MessageItem from "@/base/message-item";
 import Tab from "@/components/tab/tab";
+import { getMessage } from "@/middleware/message";
 export default {
   name: "MessageList",
   data() {
@@ -29,7 +30,17 @@ export default {
     };
   },
   created() {
-    console.log(this.$route);
+    this._getMessage();
+  },
+  methods: {
+    _getMessage() {
+      let params = {
+        type: 2
+      };
+      getMessage(params).then(res => {
+        console.log(res);
+      });
+    }
   },
   components: {
     MessageItem,
