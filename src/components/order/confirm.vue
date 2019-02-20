@@ -88,7 +88,10 @@ export default {
       submitOrder(params).then(res => {
         console.log(res);
         this.$router.push({
-          path: "/orderDetail"
+          path: "/orderDetail",
+          query: {
+            id: this.$route.query.id
+          }
         });
       });
     }
