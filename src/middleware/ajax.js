@@ -1,7 +1,5 @@
 const host = 'https://47.97.198.242';
 export default function ajax(url, data, type) {
-  // url += (url.indexOf('?') < 0 ? '?' : '&') + param(data)
-
   return new Promise((resolve, reject) => {
     $.ajax({
       //  请求方式 默认是get
@@ -10,7 +8,7 @@ export default function ajax(url, data, type) {
       url: host + url,
       //  对于get请求，这个没必要去设置，因为最后都是queryString的形式进行发送
       contentType: 'application/json', //  默认是 application/x-www-form-urlencoded
-      data: data,
+      data: type === 'post' ? JSON.stringify(data) : data,
       //  允许携带cookie信息-这个需要和后台协商，看是否需要 （可选）
       //  注意： 服务器端 Access-Control-Allow-Credentials = true 时，参数Access-Control-Allow-Origin 的值不能为 '*' 。
       xhrFields: {

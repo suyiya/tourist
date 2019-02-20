@@ -63,39 +63,7 @@ export default {
   name: "OrderDetail",
   data() {
     return {
-      data: {
-        hashId: "TRV_20190108200959CSTstbi0lrxzq",
-        create_time: "2019-01-08 20:10:00",
-        buyer_id: 18,
-        owner_id: 0,
-        status: 1, // 0 待支付 1 已支付 2 已评价结束
-        discount: 1,
-        realpay: 1999,
-        tid: 1,
-        price_id: 1,
-        start_time: "2018-12-12 00:00:00",
-        point_name: "shanghai",
-        days: 3,
-        main_thumb_urls:
-          "https://www.hole19golf.com/assets/course-profile-default_1-020faf6a99e5096c1e7432ee1da8401b0fd6957f7a6d431d7ea9fe09fe9bc732.jpg",
-        creator: 1,
-        tp_create_time: "2019-01-07 12:12:12",
-        tp_status: 1,
-        p_lat: 31.23122,
-        p_lon: 123.3456,
-        introduce: "this is first travel product introduce",
-        way: "this is way of travel",
-        feedetail: null,
-        exceptions: "this is exception of travel product",
-        title: "first travel",
-        subtitle: "first travel in shanghai 3 days",
-        pcs: 2,
-        p_title: "标配行程价3",
-        contact_name: "都璟秀",
-        contact_phone: "15868489095",
-        contact_email: "doujingxiu128@gm",
-        id: 1
-      }
+      data: {}
     };
   },
   computed: {
@@ -138,6 +106,7 @@ export default {
       };
       getTravelOrderInfo(params).then(res => {
         console.log(res);
+        this.data = res.data;
       });
     }
   }
