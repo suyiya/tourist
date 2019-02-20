@@ -74,27 +74,7 @@ export default {
         comment_thumb: "",
         id: 1
       },
-      data: {
-        point_name: "shanghai",
-        days: 3,
-        main_thumb_urls:
-          "https://www.hole19golf.com/assets/course-profile-default_1-020faf6a99e5096c1e7432ee1da8401b0fd6957f7a6d431d7ea9fe09fe9bc732.jpg",
-        creator: 1,
-        create_time: "2019-01-07 12:12:12",
-        status: 1,
-        p_lat: 31.23122,
-        p_lon: 123.3456,
-        introduce: "this is first travel product introduce",
-        way: "this is way of travel",
-        feedetail: null,
-        exceptions: "this is exception of travel product",
-        title: "first travel",
-        subtitle: "first travel in shanghai 3 days",
-        default_price: 120,
-        default_price_introduce: "标配行程价",
-        default_price_title: "标配行程价",
-        id: 1
-      }
+      data: {}
     };
   },
   created() {
@@ -113,7 +93,8 @@ export default {
         tid: this.$route.query.id
       };
       getTravelProductInfo(params).then(res => {
-        console.log(res);
+        console.log(res.data);
+        this.data = res.data;
       });
     },
     /**
@@ -125,7 +106,11 @@ export default {
       };
       getTravelProductComments(params)
         .then(res => {
-          console.log(res);
+          let travelCommentsList = res.data.travelCommentsList;
+          console.log(travelCommentsList);
+          if (travelCommentsList.length > 0) {
+            this.comment = travelCommentsList[0];
+          }
         })
         .catch(err => {
           console.log(err);

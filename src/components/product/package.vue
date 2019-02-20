@@ -5,7 +5,7 @@
       <div
         class="package"
         v-for="(item,index) in travelProductPriceList"
-        :key="item.tid"
+        :key="item.price_id"
         :class="packageIndex==index?'pk-select':''"
         @click="selectPackage(index)"
       >
@@ -70,47 +70,11 @@ export default {
       amount: 1,
       packageIndex: 0,
       totalPrice: 0,
-      travelProductPriceList: [
-        {
-          is_default: 0,
-          tid: 1,
-          price_id: 1,
-          price: 120,
-          description: "标配行程价1",
-          p_title: "标配行程价1",
-          lang_id: "cn"
-        },
-        {
-          is_default: 0,
-          tid: 2,
-          price_id: 2,
-          price: 123,
-          description: "标配行程价2",
-          p_title: "标配行程价2",
-          lang_id: "cn"
-        },
-        {
-          is_default: 1,
-          tid: 3,
-          price_id: 2,
-          price: 124,
-          description: "标配行程价3",
-          p_title: "标配行程价3",
-          lang_id: "cn"
-        }
-      ]
+      travelProductPriceList: []
     };
   },
   created() {
     this._getTravelProductAllPrice();
-    for (let i = 0; i < this.travelProductPriceList.length; i++) {
-      let travel = this.travelProductPriceList[i];
-      if (travel.is_default == 1) {
-        this.packageIndex = i;
-        this.totalPrice = travel.price;
-        break;
-      }
-    }
   },
   mounted() {
     console.log("mounted");
@@ -124,8 +88,22 @@ export default {
   },
   methods: {
     _getTravelProductAllPrice() {
-      getTravelProductAllPrice().then(res => {
+      let params = {
+        tid: this.$route.query.id
+      };
+      getTravelProductAllPrice(params).then(res => {
         console.log(res);
+        let travelProductPriceList = res.data.travelProductPriceList || [];
+        this.travelProductPriceList = travelProductPriceList;
+
+        for (let i = 0; i < this.travelProductPriceList.length; i++) {
+          let travel = this.travelProductPriceList[i];
+          if (travel.is_default == 1) {
+            this.packageIndex = i;
+            this.totalPrice = travel.price;
+            break;
+          }
+        }
       });
     },
     showPicker() {
@@ -163,7 +141,8 @@ export default {
         query: {
           ...this.travelProductPriceList[this.packageIndex],
           amount: this.amount,
-          time: this.time
+          time: this.time,
+          id: this.$route.query.id
         }
       });
     }
