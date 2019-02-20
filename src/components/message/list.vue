@@ -39,6 +39,8 @@ export default {
       };
       getMessage(params).then(res => {
         console.log(res);
+        let message_list = res.data.message_list || [];
+        this.message_list = message_list;
       });
     }
   },

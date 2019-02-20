@@ -26,7 +26,7 @@ export function getOrderList(params) {
  * @param {*} params 
  */
 export function getTravelOrderInfo(params) {
-    const url = "/travel/order/getTravelOrderInfo/{orderId}"
-    const data = Object.assign({}, params)
-    return ajax(url, data)
+    const url = `/travel/order/getTravelOrderInfo/${params.orderId}`
+    // const data = Object.assign({}, params)
+    return ajax(url)
 }

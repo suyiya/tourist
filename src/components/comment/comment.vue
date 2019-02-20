@@ -12,7 +12,7 @@
       <!-- <div class="star-bar">
         <p>球场</p>
         <star-list v-on:getNum="getCourtNum"/>
-      </div> -->
+      </div>-->
     </div>
     <div class="comment">
       <textarea v-model="content" placeholder="您的评价会帮助其他球友了解这个套餐"/>
@@ -46,13 +46,7 @@ export default {
         Toast("请输入评价内容！");
         return;
       }
-      let params ={
-
-      }
       this._commentTravel();
-      this.$router.push({
-        path: "/orderList"
-      });
     },
     getRouteNum(num) {
       console.log(num);
@@ -67,8 +61,19 @@ export default {
       this.courtNum = num;
     },
     _commentTravel() {
-      commentTravel().then(res => {
+      let params = {
+        torder_id: "",
+        tid: "",
+        travel_type: "", // 1 自营旅游路线 。2 用户上传旅游路线
+        comments: "",
+        service_stars: "",
+        way_stars: ""
+      };
+      commentTravel(params).then(res => {
         console.log(res);
+        this.$router.push({
+          path: "/orderList"
+        });
       });
     }
   }

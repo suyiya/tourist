@@ -122,7 +122,7 @@ export default {
     submit() {
       let status = this.data.status;
       if (status == 0) {
-        console.log("去支付")
+        console.log("去支付");
       } else if (status == 1) {
         this.$router.push({
           path: "/comment",
@@ -133,8 +133,10 @@ export default {
       }
     },
     _getTravelOrderInfo() {
-      let params = {};
-      getTravelOrderInfo().then(res => {
+      let params = {
+        orderId: this.$route.query.id
+      };
+      getTravelOrderInfo(params).then(res => {
         console.log(res);
       });
     }
