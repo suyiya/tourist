@@ -1,5 +1,5 @@
 import { Toast } from 'mint-ui';
-import { callApi } from '@/middleware/api';
+import ajax from '../../middleware/ajax';
 import wx from 'weixin-js-sdk';
 /* WeixinJSBridge 封装
     微信 JS-SDK 调用准备
@@ -9,18 +9,12 @@ import wx from 'weixin-js-sdk';
 class WeChatJSBridge {
 
   // 获取微信签名
-  getWeChatSignature(isBeta,isDebug) {
+  getWeChatSignature(isBeta, isDebug) {
     // 是否开启调试模式 true：开启 false：未开启
 
-    const _promise = callApi({
-      endpoint: '/ec/user/sign/getSignature',
-      params: {
-        url: ''
-      },
-      method: 'POST'
-    });
-
-    return _promise.then(res => {
+    const url = "/ec/user/sign/getSignature"
+    const data = Object.assign({})
+    ajax(url, data, 'post').then(res => {
       if (res.errcode != '0') {
         Toast.info(res.errmsg);
         return Promise.reject();
