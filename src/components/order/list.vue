@@ -1,14 +1,14 @@
 <template>
   <div>
     <div class="nav-bar">
+      <div class="nav-item" @click="changeNav(-1)">
+        <p :class="navType==-1?'selected':''">全部</p>
+      </div>
+      <div class="nav-item" @click="changeNav(0)">
+        <p :class="navType==0?'selected':''">待支付</p>
+      </div>
       <div class="nav-item" @click="changeNav(1)">
-        <p :class="navType==1?'selected':''">全部</p>
-      </div>
-      <div class="nav-item" @click="changeNav(2)">
-        <p :class="navType==2?'selected':''">待支付</p>
-      </div>
-      <div class="nav-item" @click="changeNav(3)">
-        <p :class="navType==3?'selected':''">已完成</p>
+        <p :class="navType==1?'selected':''">已完成</p>
       </div>
     </div>
     <div class="container">
@@ -24,7 +24,7 @@ export default {
   name: "OrderList",
   data() {
     return {
-      navType: 1,
+      navType: -1,
       travel_order_list: []
     };
   },
@@ -40,11 +40,14 @@ export default {
       this._getOrderList();
     },
     _getOrderList() {
-      let params = {};
+      let params = {
+        status: this.navType, // status  -1:全部  0待支付  1 已完成
+        pageNum: 1
+      };
       getOrderList(params).then(res => {
         console.log(res);
         let travel_order_list = res.data.travel_order_list || [];
-        this.travel_order_list = this.travel_order_list.concat(travel_order_list);
+        this.travel_order_list = travel_order_list;
       });
     }
   }
