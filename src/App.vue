@@ -11,8 +11,8 @@ import WeChatJSBridge from "@/common/utility/wx";
 export default {
   name: "App",
   created() {
-    this.weChatJSBridge = new WeChatJSBridge();
-    this.weChatJSBridge.getWeChatSignature();
+    // this.weChatJSBridge = new WeChatJSBridge();
+    // this.weChatJSBridge.getWeChatSignature();
   }
 };
 </script>
