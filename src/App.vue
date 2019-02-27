@@ -1,18 +1,28 @@
 <template>
   <div id="app">
     <!-- <keep-alive> -->
-      <router-view></router-view>
+    <router-view></router-view>
     <!-- </keep-alive> -->
   </div>
 </template>
 
 <script>
 import WeChatJSBridge from "@/common/utility/wx";
+import wx from 'weixin-js-sdk';
 export default {
   name: "App",
   created() {
     // this.weChatJSBridge = new WeChatJSBridge();
     // this.weChatJSBridge.getWeChatSignature();
+    wx.miniProgram.getEnv(function(res) {
+      console.log("minprogram:" + res.miniprogram); // true
+      //  alert(JSON.stringify(res));
+      if (res.miniprogram === true) {
+        localStorage.setItem('isMiniProgram',true)
+      } else {
+        localStorage.setItem('isMiniProgram',false)
+      }
+    });
   }
 };
 </script>

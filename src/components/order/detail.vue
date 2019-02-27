@@ -90,7 +90,7 @@ export default {
     submit() {
       let status = this.data.status;
       if (status == 0) {
-        console.log("去支付");
+        this.navigateToPay();
       } else if (status == 1) {
         this.$router.push({
           path: "/comment",
@@ -99,6 +99,37 @@ export default {
             torder_id: this.data.id
           }
         });
+      }
+    },
+
+    //跳转到小程序
+    navigateToMiniProgram: function(payParam) {
+      const url = "/pages/wxPay/wxPay?payParam=" + encodeURIComponent(payParam);
+      alert("url:" + url);
+      wx.miniProgram.navigateTo({
+        url: url
+      });
+    },
+    //小程序和公众号跳转不同页面
+    navigateToPay: function() {
+        let isMiniProgram = localStorage.getItem("isMiniProgram");
+        console.log("去支付", isMiniProgram);
+      if (isMiniProgram == true) {
+        // alert('小程序')
+        //由后台协商好返回的数据格式，该代码仅供参考，不能实际使用
+        const payParam = {
+          appId: "wxd678efh567hg6787",
+          nonceStr: "5K8264ILTKCH16CQ2502SI8ZNMTM67VS",
+          package: "prepay_id=wx2017033010242291fcfe0db70013231072",
+          signType: "MD5",
+          timeStamp: "1490840662",
+          paySign: "BB2B9BD3F2F8A1CB270C6ACE3D7BDB9"
+        };
+        // alert(payParam);
+        this.navigateToMiniProgram(JSON.stringify(payParam));
+      } else {
+        alert("公众号");
+        //原先支付逻辑不用修改;
       }
     },
     _getTravelOrderInfo() {
