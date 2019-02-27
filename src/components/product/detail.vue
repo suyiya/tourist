@@ -37,12 +37,14 @@
           <div class="longLine"></div>
           <div>详情介绍</div>
         </div>
+        <div v-html="data.introduce"></div>
       </div>
       <div class="container" v-if="introIndex!=0">
         <div class="con-title">
           <div class="longLine"></div>
           <div>预定须知</div>
         </div>
+        <div v-html="data.exceptions"></div>
       </div>
     </div>
     <div class="footer bg-white">

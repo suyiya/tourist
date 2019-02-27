@@ -49,5 +49,6 @@ export default {
 <style scoped>
 .message-list {
   padding: 12px 16px;
+  margin-bottom:40px;
 }
 </style>
