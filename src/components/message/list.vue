@@ -40,7 +40,7 @@ export default {
       //这里根据自己的实际情况设置容器的高度
       this.wrapperHeight = document.documentElement.clientHeight - 105;
     } else {
-      this.wrapperHeight = document.documentElement.clientHeight - 80;
+      this.wrapperHeight = document.documentElement.clientHeight - 50;
     }
   },
   methods: {
