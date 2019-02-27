@@ -12,7 +12,7 @@ var $ = require('jquery');
 window.$ = $;
 
 var VConsole = require('vconsole');
-var vConsole = new VConsole();
+// var vConsole = new VConsole();
 
 Vue.config.productionTip = false
 Vue.use(MintUI)

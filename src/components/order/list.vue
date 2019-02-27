@@ -12,7 +12,13 @@
       </div>
     </div>
     <div class="container">
-      <OrderItem :key="item.id" v-for="item in travel_order_list" :data="item"/>
+      <mt-loadmore
+        :bottom-method="loadBottom"
+        :bottom-all-loaded="allLoaded"
+        ref="loadmore"
+      >
+        <OrderItem :key="item.id" v-for="item in travel_order_list" :data="item"/>
+      </mt-loadmore>
     </div>
   </div>
 </template>
@@ -20,19 +26,22 @@
 <script>
 import OrderItem from "@/base/order-item";
 import { getOrderList } from "@/middleware/order";
+import { Loadmore } from "mint-ui";
 export default {
   name: "OrderList",
   data() {
     return {
       navType: -1,
-      travel_order_list: []
+      travel_order_list: [],
+      allLoaded: false
     };
   },
   created() {
     this._getOrderList();
   },
   components: {
-    OrderItem
+    OrderItem,
+    Loadmore
   },
   methods: {
     changeNav(index) {
@@ -49,6 +58,9 @@ export default {
         let travel_order_list = res.data.travel_order_list || [];
         this.travel_order_list = travel_order_list;
       });
+    },
+    loadBottom() {
+      console.log("loadBottom");
     }
   }
 };
