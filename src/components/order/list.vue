@@ -11,13 +11,19 @@
         <p :class="navType==1?'selected':''">已完成</p>
       </div>
     </div>
-    <div class="container">
+
+    <div class="page-loadmore-wrapper" :style="{ height: wrapperHeight + 'px' }">
       <mt-loadmore
         :bottom-method="loadBottom"
         :bottom-all-loaded="allLoaded"
+        :auto-fill="false"
         ref="loadmore"
       >
-        <OrderItem :key="item.id" v-for="item in travel_order_list" :data="item"/>
+        <div class="container">
+          <mt-loadmore :bottom-method="loadBottom" :bottom-all-loaded="allLoaded" ref="loadmore">
+            <OrderItem :key="item.id" v-for="item in travel_order_list" :data="item"/>
+          </mt-loadmore>
+        </div>
       </mt-loadmore>
     </div>
   </div>
@@ -37,6 +43,13 @@ export default {
     };
   },
   created() {
+    let windowWidth = document.documentElement.clientWidth; //获取屏幕宽度
+    if (windowWidth >= 768) {
+      //这里根据自己的实际情况设置容器的高度
+      this.wrapperHeight = document.documentElement.clientHeight - 105;
+    } else {
+      this.wrapperHeight = document.documentElement.clientHeight;
+    }
     this._getOrderList();
   },
   components: {
@@ -57,10 +70,12 @@ export default {
         console.log(res);
         let travel_order_list = res.data.travel_order_list || [];
         this.travel_order_list = travel_order_list;
+        this.$refs.loadmore.onBottomLoaded();
       });
     },
     loadBottom() {
       console.log("loadBottom");
+      this._getOrderList();
     }
   }
 };
@@ -68,6 +83,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.page-loadmore-wrapper {
+  overflow: scroll;
+}
 .nav-bar {
   height: 40px;
   background: white;

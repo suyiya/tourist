@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div :key="item.tid" v-for="item in travelCommentsList" class="mt10 pd16 bg-white">
+    <div :key="item.torder_id" v-for="item in travelCommentsList" class="mt10 pd16 bg-white">
       <div class="top">
         <div class="user-info">
           <img :src="item.comment_thumb" class="avatar">
