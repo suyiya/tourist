@@ -28,7 +28,7 @@ export default {
     return {
       message_list: [],
       wrapperHeight: 0,
-      allLoaded: true
+      allLoaded: false
     };
   },
   created() {
@@ -45,9 +45,9 @@ export default {
   },
   methods: {
     _getMessage(direction) {
-      if (!this.allLoaded) {
-        return;
-      }
+      // if (!this.allLoaded) {
+      //   return;
+      // }
       this.allLoaded = false;
       let params = {
         type: 2
@@ -55,7 +55,7 @@ export default {
       getMessage(params)
         .then(res => {
           console.log(res);
-          this.allLoaded = true;
+          // this.allLoaded = true;
           if (direction == "1") {
             this.$refs.loadmore.onBottomLoaded();
           } else if (direction == "0") {
