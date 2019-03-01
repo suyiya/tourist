@@ -1,4 +1,5 @@
-const host = 'https://47.97.198.242';
+// const host = 'https://47.97.198.242';
+const host = 'https://test.mp.socialgolf.cn';
 export default function ajax(url, data, type) {
   return new Promise((resolve, reject) => {
     $.ajax({

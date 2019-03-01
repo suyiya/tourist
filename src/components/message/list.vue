@@ -21,7 +21,6 @@
 import MessageItem from "@/base/message-item";
 import Tab from "@/components/tab/tab";
 import { getMessage } from "@/middleware/message";
-import { Toast, Loadmore } from "mint-ui";
 export default {
   name: "MessageList",
   data() {
@@ -80,8 +79,7 @@ export default {
   },
   components: {
     MessageItem,
-    Tab,
-    Loadmore
+    Tab
   }
 };
 </script>

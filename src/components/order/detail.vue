@@ -59,6 +59,7 @@
 <script>
 import InfoBar from "@/base/info-bar";
 import { getTravelOrderInfo } from "@/middleware/order";
+import wx from 'weixin-js-sdk';
 export default {
   name: "OrderDetail",
   data() {
@@ -105,14 +106,14 @@ export default {
     //跳转到小程序
     navigateToMiniProgram: function(payParam) {
       const url = "/pages/wxPay/wxPay?payParam=" + encodeURIComponent(payParam);
-      alert("url:" + url);
+      // alert("url:" + url);
       wx.miniProgram.navigateTo({
         url: url
       });
     },
     //小程序和公众号跳转不同页面
     navigateToPay: function() {
-        let isMiniProgram = localStorage.getItem("isMiniProgram");
+        let isMiniProgram = Boolean(localStorage.getItem("isMiniProgram"));
         console.log("去支付", isMiniProgram);
       if (isMiniProgram == true) {
         // alert('小程序')
