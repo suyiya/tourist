@@ -41,7 +41,7 @@ export default {
   methods: {
     _getTravelProductList() {
       let params = {
-        region: this.$route.query.region,
+        // region: this.$route.query.region,
         pageNum: this.pageNum
       };
       getTravelProductList(params).then(res => {

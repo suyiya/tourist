@@ -30,3 +30,13 @@ export function getTravelProductAllPrice(params) {
     const data = Object.assign({}, params)
     return ajax(url, data)
 }
+
+/**
+ * 海外游
+ * @param {*} params 
+ */
+export function getTravelProductListNotCn(params) {
+    const url = "/travel/getTravelProductListNotCn"
+    const data = Object.assign({}, params)
+    return ajax(url, data)
+}

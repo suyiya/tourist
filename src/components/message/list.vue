@@ -65,7 +65,7 @@ export default {
         })
         .catch(res => {
           this.allLoaded = true;
-          Toast(res.msg);
+          // Toast(res.msg);
         });
     },
     loadTop() {

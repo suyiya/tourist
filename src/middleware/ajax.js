@@ -19,7 +19,7 @@ export default function ajax(url, data, type) {
       crossDomain: true,
       dataType: 'json', //默认是json
       headers: {
-        Authorization: 'd9ee2e991b73141291b705dc08b9a801ee146296'
+        Authorization: '40e14b06d0c32e636c2b1ddcd4915c4945d8f7bb'
       },
       success: function (res) {
         //  res返回的code不为 0 的 时候，说明你的请求有问题，这里和我们的主题没太大关系

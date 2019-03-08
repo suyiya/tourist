@@ -8,9 +8,9 @@
         <div class="container mt14">
           <district-item v-for="item in districtList" :key="item.id" :data="item"/>
         </div>
-        <div class="container mt10">
+        <!-- <div class="container mt10">
           <info-small v-for="item in travelProductList" :key="item.id" :data="item"/>
-        </div>
+        </div> -->
       </div>
       <div class="mt28">
         <div class="title-bar">
@@ -21,7 +21,7 @@
           </p>
         </div>
         <div class="container mt14">
-          <info-small v-for="item in travelProductList" :key="item.id" :data="item"/>
+          <info-small v-for="item in overseaList" :key="item.id" :data="item"/>
         </div>
       </div>
       <div class="mt28">
@@ -33,7 +33,7 @@
           </p>
         </div>
         <div class="container mt14">
-          <info-small v-for="item in travelProductList" :key="item.id" :data="item"/>
+          <info-small v-for="item in homeList" :key="item.id" :data="item"/>
         </div>
       </div>
     </div>
@@ -46,7 +46,10 @@ import Tab from "@/components/tab/tab";
 import InfoSmall from "@/base/info-small";
 import DistrictItem from "@/base/district-item";
 import { Indicator } from "mint-ui";
-import { getTravelProductList } from "@/middleware/product";
+import {
+  getTravelProductList,
+  getTravelProductListNotCn
+} from "@/middleware/product";
 export default {
   name: "Home",
   data() {
@@ -58,7 +61,8 @@ export default {
         { name: "新西兰", region: "nl" },
         { name: "澳大利亚", region: "au" }
       ],
-      travelProductList: [],
+      homeList: [],
+      overseaList:[],
       pageNum: 1
     };
   },
@@ -69,6 +73,7 @@ export default {
   },
   created() {
     this._getTravelProductList();
+    this._getTravelProductListNotCn();
   },
   mounted() {},
   methods: {
@@ -77,16 +82,34 @@ export default {
         path: "/productList"
       });
     },
-    _getTravelProductList(pageNum, region) {
+    /**
+     * 国内游
+     */
+    _getTravelProductList() {
       Indicator.open();
       let params = {
-        pageNum: pageNum,
-        region: region
+        pageNum: 1
       };
-      getTravelProductList().then(res => {
+      getTravelProductList(params).then(res => {
         console.log(res);
         let travelProductList = res.data.travelProductList || [];
-        this.travelProductList = travelProductList;
+        this.homeList = travelProductList;
+        Indicator.close();
+      });
+    },
+
+    /**
+     * 海外游
+     */
+    _getTravelProductListNotCn() {
+      Indicator.open();
+      let params = {
+        pageNum: 1
+      };
+      getTravelProductListNotCn(params).then(res => {
+        console.log(res);
+        let travelProductList = res.data.travelProductList || [];
+        this.overseaList = travelProductList;
         Indicator.close();
       });
     }
