@@ -1,10 +1,11 @@
 <template>
-  <div class="district bg-green c-white" @click="goList()">日本</div>
+  <div class="district bg-green c-white" @click="goList()">{{data.name}}</div>
 </template>
 
 <script>
 export default {
   name: "InfoSmall",
+  props: ["data"],
   data() {
     return {
       msg: "Welcome to Your Vue.js App"
@@ -13,7 +14,10 @@ export default {
   methods: {
     goList() {
       this.$router.push({
-        path: "/productList"
+        path: "/productList",
+        query: {
+          region: this.data.region
+        }
       });
     }
   }

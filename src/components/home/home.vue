@@ -6,17 +6,7 @@
           <p class="title">热门目的地</p>
         </div>
         <div class="container mt14">
-          <district-item/>
-          <district-item/>
-          <district-item/>
-          <district-item/>
-          <district-item/>
-          <district-item/>
-          <district-item/>
-          <district-item/>
-          <district-item/>
-          <district-item/>
-          <district-item/>
+          <district-item v-for="item in districtList" :key="item.id" :data="item"/>
         </div>
         <div class="container mt10">
           <info-small v-for="item in travelProductList" :key="item.id" :data="item"/>
@@ -61,6 +51,13 @@ export default {
   name: "Home",
   data() {
     return {
+      districtList: [
+        { name: "中国", region: "cn" },
+        { name: "日本", region: "jp" },
+        { name: "东南亚", region: "ea" },
+        { name: "新西兰", region: "nl" },
+        { name: "澳大利亚", region: "au" }
+      ],
       travelProductList: [],
       pageNum: 1
     };

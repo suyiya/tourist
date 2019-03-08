@@ -21,7 +21,8 @@ export default {
   data() {
     return {
       travelProductList: [],
-      allLoaded: false
+      allLoaded: false,
+      pageNum: 1
     };
   },
   components: {
@@ -39,7 +40,11 @@ export default {
   },
   methods: {
     _getTravelProductList() {
-      getTravelProductList().then(res => {
+      let params = {
+        region: this.$route.query.region,
+        pageNum: this.pageNum
+      };
+      getTravelProductList(params).then(res => {
         console.log(res);
         let travelProductList = res.data.travelProductList || [];
         this.travelProductList = travelProductList;

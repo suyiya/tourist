@@ -39,6 +39,7 @@ export default {
   display: inline-block;
   margin-right: 8px;
   border-radius: 5px;
+  overflow: hidden;
 }
 .info-small img {
   width: 100%;
