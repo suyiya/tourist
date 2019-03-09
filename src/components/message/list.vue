@@ -21,6 +21,7 @@
 import MessageItem from "@/base/message-item";
 import Tab from "@/components/tab/tab";
 import { getMessage } from "@/middleware/message";
+import { Toast } from "mint-ui";
 export default {
   name: "MessageList",
   data() {
@@ -65,7 +66,7 @@ export default {
         })
         .catch(res => {
           this.allLoaded = true;
-          // Toast(res.msg);
+          Toast(res.msg);
         });
     },
     loadTop() {

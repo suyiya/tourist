@@ -39,7 +39,6 @@ export default {
   display: inline-block;
   margin-right: 8px;
   border-radius: 5px;
-  overflow: hidden;
 }
 .info-small img {
   width: 100%;
@@ -49,6 +48,9 @@ export default {
   font-size: 16px;
   color: #383838;
   font-weight: 500;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 .info-small .text2 {
   font-size: 13px;

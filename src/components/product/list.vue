@@ -15,7 +15,11 @@
 
 <script>
 import InfoBig from "@/base/info-big";
-import { getTravelProductList } from "@/middleware/product";
+import {
+  getTravelProductList,
+  getTravelProductListNotCn
+} from "@/middleware/product";
+import { Indicator } from "mint-ui";
 export default {
   name: "ProductList",
   data() {
@@ -36,12 +40,16 @@ export default {
     } else {
       this.wrapperHeight = document.documentElement.clientHeight;
     }
-    this._getTravelProductList();
+    if (this.$route.query.region) {
+      this._getTravelProductList();
+    } else {
+      this._getTravelProductListNotCn();
+    }
   },
   methods: {
     _getTravelProductList() {
       let params = {
-        // region: this.$route.query.region,
+        region: this.$route.query.region,
         pageNum: this.pageNum
       };
       getTravelProductList(params).then(res => {
@@ -49,6 +57,21 @@ export default {
         let travelProductList = res.data.travelProductList || [];
         this.travelProductList = travelProductList;
         this.$refs.loadmore.onBottomLoaded();
+      });
+    },
+    /**
+     * 海外游
+     */
+    _getTravelProductListNotCn() {
+      Indicator.open();
+      let params = {
+        pageNum: 1
+      };
+      getTravelProductListNotCn(params).then(res => {
+        console.log(res);
+        let travelProductList = res.data.travelProductList || [];
+        this.travelProductList = travelProductList;
+        Indicator.close();
       });
     },
     loadBottom() {

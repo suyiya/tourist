@@ -10,7 +10,7 @@
         </div>
         <!-- <div class="container mt10">
           <info-small v-for="item in travelProductList" :key="item.id" :data="item"/>
-        </div> -->
+        </div>-->
       </div>
       <div class="mt28">
         <div class="title-bar">
@@ -27,7 +27,7 @@
       <div class="mt28">
         <div class="title-bar">
           <p class="title">国内推荐</p>
-          <p class="more" @click="clickMore()">
+          <p class="more" @click="clickMore('cn')">
             更多
             <img src="@/assets/btn_jiantou_xiao_lv.png">
           </p>
@@ -62,7 +62,7 @@ export default {
         { name: "澳大利亚", region: "au" }
       ],
       homeList: [],
-      overseaList:[],
+      overseaList: [],
       pageNum: 1
     };
   },
@@ -77,9 +77,12 @@ export default {
   },
   mounted() {},
   methods: {
-    clickMore() {
+    clickMore(region) {
       this.$router.push({
-        path: "/productList"
+        path: "/productList",
+        query: {
+          region: region
+        }
       });
     },
     /**
@@ -88,7 +91,8 @@ export default {
     _getTravelProductList() {
       Indicator.open();
       let params = {
-        pageNum: 1
+        pageNum: 1,
+        region: "cn"
       };
       getTravelProductList(params).then(res => {
         console.log(res);
