@@ -1,5 +1,5 @@
-// const host = 'https://47.97.198.242';
-const host = 'https://test.mp.socialgolf.cn';
+// const host = 'http://47.97.198.242:8088';
+const host = 'http://test.mp.socialgolf.cn:8088';
 export default function ajax(url, data, type) {
   return new Promise((resolve, reject) => {
     $.ajax({
