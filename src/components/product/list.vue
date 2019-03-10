@@ -10,6 +10,7 @@
         <info-big v-for="item in travelProductList" :key="item.id" :data="item"/>
       </div>
     </mt-loadmore>
+    <div class="tac" v-if="travelProductList.length<1">没有产品</div>
   </div>
 </template>
 
@@ -89,5 +90,8 @@ export default {
 }
 .container {
   padding: 12px 16px;
+}
+.tac {
+  text-align: center;
 }
 </style>
