@@ -61,6 +61,7 @@ import InfoBar from "@/base/info-bar";
 import { getTravelOrderInfo, submitPayToWechat } from "@/middleware/order";
 import wx from "weixin-js-sdk";
 import { appId } from "@/common/utility/constant";
+import { Toast } from "mint-ui";
 export default {
   name: "OrderDetail",
   data() {
@@ -87,7 +88,6 @@ export default {
   },
   created() {
     this._getTravelOrderInfo();
-    console.log(wx);
   },
   methods: {
     submit() {
@@ -157,7 +157,7 @@ export default {
           this.jsApiCall(res.data);
         })
         .catch(err => {
-          Toast(err);
+          Toast("错误");
         });
     },
 

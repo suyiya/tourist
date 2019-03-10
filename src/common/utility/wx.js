@@ -17,7 +17,7 @@ class WeChatJSBridge {
     const data = Object.assign({})
     ajax(url, data, 'post').then(res => {
       if (res.errcode != '0') {
-        Toast.info(res.errmsg);
+        Toast(res.errmsg);
         return Promise.reject();
       }
       this.registerJSAPI(res.data, isBeta, isDebug);
