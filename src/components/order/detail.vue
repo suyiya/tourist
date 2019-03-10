@@ -58,8 +58,9 @@
 
 <script>
 import InfoBar from "@/base/info-bar";
-import { getTravelOrderInfo } from "@/middleware/order";
-import wx from 'weixin-js-sdk';
+import { getTravelOrderInfo, submitPayToWechat } from "@/middleware/order";
+import wx from "weixin-js-sdk";
+import { appId } from "@/common/utility/constant";
 export default {
   name: "OrderDetail",
   data() {
@@ -86,6 +87,7 @@ export default {
   },
   created() {
     this._getTravelOrderInfo();
+    console.log(wx);
   },
   methods: {
     submit() {
@@ -113,13 +115,13 @@ export default {
     },
     //小程序和公众号跳转不同页面
     navigateToPay: function() {
-        let isMiniProgram = Boolean(localStorage.getItem("isMiniProgram"));
-        console.log("去支付", isMiniProgram);
-      if (isMiniProgram == true) {
+      let isMiniProgram = localStorage.getItem("isMiniProgram");
+      console.log("去支付", isMiniProgram);
+      if (isMiniProgram == 1) {
         // alert('小程序')
         //由后台协商好返回的数据格式，该代码仅供参考，不能实际使用
         const payParam = {
-          appId: "wxd678efh567hg6787",
+          appId: appId,
           nonceStr: "5K8264ILTKCH16CQ2502SI8ZNMTM67VS",
           package: "prepay_id=wx2017033010242291fcfe0db70013231072",
           signType: "MD5",
@@ -129,8 +131,8 @@ export default {
         // alert(payParam);
         this.navigateToMiniProgram(JSON.stringify(payParam));
       } else {
-        alert("公众号");
-        //原先支付逻辑不用修改;
+        // alert("公众号");
+        this._submitPayToWechat();
       }
     },
     _getTravelOrderInfo() {
@@ -140,6 +142,40 @@ export default {
       getTravelOrderInfo(params).then(res => {
         console.log(res);
         this.data = res.data;
+      });
+    },
+    _submitPayToWechat() {
+      let openId = localStorage.getItem("openId");
+      let params = {
+        orderId: this.data.id,
+        order_hashBODY: this.data.hashId,
+        openId: openId
+      };
+      submitPayToWechat(params)
+        .then(res => {
+          console.log(res);
+          this.jsApiCall(res.data);
+        })
+        .catch(err => {
+          Toast(err);
+        });
+    },
+
+    /**
+     * 调起微信支付
+     */
+    jsApiCall(data) {
+      wx.chooseWXPay({
+        appId: appId,
+        timestamp: data.timestamp, // 支付签名时间戳，注意微信jssdk中的所有使用timestamp字段均为小写。但最新版的支付后台生成签名使用的timeStamp字段名需大写其中的S字符
+        nonceStr: data.nonce_str, // 支付签名随机串，不长于 32 位
+        package: data.prepay_id, // 统一支付接口返回的prepay_id参数值，提交格式如：prepay_id=\*\*\*）
+        signType: "MD5", // 签名方式，默认为'SHA1'，使用新版支付需传入'MD5'
+        paySign: data.pay_sign, // 支付签名
+        success: function(res) {
+          // 支付成功后的回调函数
+          console.log(res);
+        }
       });
     }
   }

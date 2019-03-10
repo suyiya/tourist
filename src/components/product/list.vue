@@ -10,7 +10,7 @@
         <info-big v-for="item in travelProductList" :key="item.id" :data="item"/>
       </div>
     </mt-loadmore>
-    <div class="tac" v-if="travelProductList.length<1">没有产品</div>
+    <div class="tac" v-if="travelProductList.length<1">暂时没有相关信息</div>
   </div>
 </template>
 

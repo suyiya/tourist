@@ -13,14 +13,14 @@ export default {
   name: "App",
   created() {
     // this.weChatJSBridge = new WeChatJSBridge();
-    // this.weChatJSBridge.getWeChatSignature();
+    // this.weChatJSBridge.registerJSAPI();
     wx.miniProgram.getEnv(function(res) {
       console.log("minprogram:" + res.miniprogram); // true
       //  alert(JSON.stringify(res));
       if (res.miniprogram === true) {
-        localStorage.setItem('isMiniProgram',true)
+        localStorage.setItem('isMiniProgram',1)
       } else {
-        localStorage.setItem('isMiniProgram',false)
+        localStorage.setItem('isMiniProgram',0)
       }
     });
   }

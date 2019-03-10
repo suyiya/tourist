@@ -1,8 +1,7 @@
-//appID:wx64e1ff07ad41344f
-//secret:3835e75574d72789c3e646bc4355881c
 import { Toast } from 'mint-ui';
 import ajax from '../../middleware/ajax';
 import wx from 'weixin-js-sdk';
+import {appId} from '@/common/utility/constant'
 /* WeixinJSBridge 封装
     微信 JS-SDK 调用准备
     1、获取签名
@@ -32,7 +31,7 @@ class WeChatJSBridge {
     wx.config({
       beta: isBeta || false,//  对于没有公开的接口，设置beta 为true
       debug: isDebug || false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
-      appId: "wx64e1ff07ad41344f", // 必填，公众号的唯一标识
+      appId: appId, // 必填，公众号的唯一标识
       timestamp: config.timestamp, // 必填，生成签名的时间戳
       nonceStr: config.nonceStr, // 必填，生成签名的随机串
       signature: config.signature, // 必填，签名，见附录1

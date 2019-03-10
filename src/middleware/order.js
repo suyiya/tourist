@@ -30,3 +30,13 @@ export function getTravelOrderInfo(params) {
     // const data = Object.assign({}, params)
     return ajax(url)
 }
+
+/**
+ * 支付
+ * @param {*} params 
+ */
+export function submitPayToWechat(params) {
+    const url = `/pay/submitPayToWechat`
+    const data = Object.assign({}, params)
+    return ajax(url, data, 'post')
+}
