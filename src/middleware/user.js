@@ -1,11 +1,11 @@
 import ajax from './ajax'
 
 /**
- * 微信登陆
+ * 获取用户信息
  * @param {*} params 
  */
-export function loginWechat(params) {
-    const url = '/account/loginWechat'
+export function getUserData(params) {
+    const url = '/account/getAccessTokenFromMpWeb'
 
     const data = Object.assign({}, params)
     return ajax(url, data, 'post')

@@ -12,6 +12,7 @@
       </div>
     </div>
 
+    <div class="tac" v-if="travel_order_list.length<1" style="margin-top:10px;">暂时没有相关信息</div>
     <div class="page-loadmore-wrapper" :style="{ height: wrapperHeight + 'px' }">
       <mt-loadmore
         :bottom-method="loadBottom"
@@ -112,5 +113,8 @@ export default {
 }
 .container {
   padding: 12px 16px;
+}
+.tac {
+  text-align: center;
 }
 </style>

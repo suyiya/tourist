@@ -50,6 +50,7 @@ import {
   getTravelProductList,
   getTravelProductListNotCn
 } from "@/middleware/product";
+import { getUserData } from "@/middleware/user";
 export default {
   name: "Home",
   data() {
@@ -74,6 +75,7 @@ export default {
   created() {
     this._getTravelProductList();
     this._getTravelProductListNotCn();
+    this._getUserData();
   },
   mounted() {},
   methods: {
@@ -115,6 +117,14 @@ export default {
         let travelProductList = res.data.travelProductList || [];
         this.overseaList = travelProductList;
         Indicator.close();
+      });
+    },
+    _getUserData() {
+      let params = {
+        code: this.query.code
+      };
+      getUserData(params).then(res => {
+        console.log(res);
       });
     }
   }

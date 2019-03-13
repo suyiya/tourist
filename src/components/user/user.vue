@@ -27,7 +27,7 @@
 
 <script>
 import Tab from "@/components/tab/tab";
-import { loginWechat } from "@/middleware/user";
+// import { loginWechat } from "@/middleware/user";
 export default {
   name: "User",
   data() {
@@ -46,9 +46,9 @@ export default {
     let params = {
       code:'fsf13fds'
     }
-    loginWechat(params).then(res => {
-      console.log(res);
-    });
+    // loginWechat(params).then(res => {
+    //   console.log(res);
+    // });
   },
   methods: {
     clickOrder() {
