@@ -4,7 +4,7 @@
     <div class="product-info">
       <p>{{data.title}}</p>
       <p>{{data.subtitle}}</p>
-      <p>￥{{data.default_price}}起</p>
+      <p>{{data.currency}} {{data.default_price}}起</p>
     </div>
     <div class="package" @click="goPackage()">
       <p>选择：{{packageText}}</p>
@@ -33,17 +33,17 @@
         <div :class="introIndex==1?'selected':''" @click="selectIntro(1)">预定须知</div>
       </div>
       <div class="container" v-if="introIndex==0">
-        <div class="con-title">
+        <!-- <div class="con-title">
           <div class="longLine"></div>
           <div>详情介绍</div>
-        </div>
+        </div> -->
         <div v-html="data.introduce"></div>
       </div>
       <div class="container" v-if="introIndex!=0">
-        <div class="con-title">
+        <!-- <div class="con-title">
           <div class="longLine"></div>
           <div>预定须知</div>
-        </div>
+        </div> -->
         <div v-html="data.exceptions"></div>
       </div>
     </div>
@@ -97,7 +97,7 @@ export default {
         tid: this.$route.query.id
       };
       getTravelProductInfo(params).then(res => {
-        console.log(res.data);
+        // console.log(res.data);
         this.data = res.data;
         Indicator.close();
       });
@@ -308,7 +308,7 @@ export default {
   color: white;
 }
 .introduce .container {
-  margin-top: 26px;
+  /* margin-top: 26px; */
 }
 .con-title {
   display: flex;

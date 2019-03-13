@@ -4,7 +4,7 @@
     <div class="pd8">
       <p class="text1">{{data.title}}</p>
       <p class="text2">{{data.subtitle}}</p>
-      <p class="text3">¥{{data.default_price}}起</p>
+      <p class="text3">{{data.currency}} {{data.default_price}}起</p>
     </div>
   </div>
 </template>

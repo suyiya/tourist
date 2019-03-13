@@ -37,7 +37,7 @@
       <div class="submit-bar">
         <div class="submit-price">
           <p class="text1">总价</p>
-          <p class="c-green text2">￥{{totalPrice}}</p>
+          <p class="c-green text2">{{currency}} {{totalPrice}}</p>
         </div>
         <div class="bg-green submit-btn" @click="submit()">立即预定</div>
       </div>
@@ -70,14 +70,14 @@ export default {
       amount: 1,
       packageIndex: 0,
       totalPrice: 0,
-      travelProductPriceList: []
+      travelProductPriceList: [],
+      currency:''
     };
   },
   created() {
     this._getTravelProductAllPrice();
   },
   mounted() {
-    console.log("mounted");
     let query = this.$route.query;
     if (query.time) {
       this.dateVal = new Date(query.time);
@@ -92,10 +92,9 @@ export default {
         tid: this.$route.query.id
       };
       getTravelProductAllPrice(params).then(res => {
-        console.log(res);
         let travelProductPriceList = res.data.travelProductPriceList || [];
         this.travelProductPriceList = travelProductPriceList;
-
+        this.currency = travelProductPriceList.length>0 ? travelProductPriceList[0].currency : '';
         for (let i = 0; i < this.travelProductPriceList.length; i++) {
           let travel = this.travelProductPriceList[i];
           if (travel.is_default == 1) {
