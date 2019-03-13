@@ -3,7 +3,7 @@
     <div class="top bg-green c-white">
       <div class="top-bar">
         <p>订单{{getStatus}}</p>
-        <p>¥{{data.realpay}}</p>
+        <p>{{data.currency}} {{data.realpay}}</p>
       </div>
       <!-- <p class="f11">剩22小时4分自动关闭</p> -->
     </div>

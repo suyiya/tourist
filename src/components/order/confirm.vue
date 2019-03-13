@@ -31,7 +31,7 @@
       <div class="submit-bar">
         <div class="submit-price">
           <p class="text1">总价</p>
-          <p class="c-green text2">￥{{query.price * query.amount}}</p>
+          <p class="c-green text2">{{query.currency}} {{query.price * query.amount}}</p>
         </div>
         <div class="bg-green submit-btn" @click="submit()">提交订单</div>
       </div>
