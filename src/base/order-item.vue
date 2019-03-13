@@ -16,7 +16,7 @@
     <div class="order-bottom">
       <p>
         需付款:
-        <span>{{data.currency}}{{data.realpay}}</span>
+        <span>{{data.currency}} {{data.realpay}}</span>
       </p>
     </div>
   </div>
