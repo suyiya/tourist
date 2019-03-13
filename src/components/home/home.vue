@@ -121,7 +121,7 @@ export default {
     },
     _getUserData() {
       let params = {
-        code: this.query.code
+        code: util.getUrlParam('code')
       };
       getUserData(params).then(res => {
         console.log(res);

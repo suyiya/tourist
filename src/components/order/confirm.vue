@@ -62,11 +62,11 @@ export default {
         Toast("请输入完整姓名！");
         return;
       }
-      if (!utli.isPhoneAvailable(this.phone)) {
+      if (!util.isPhoneAvailable(this.phone)) {
         Toast("请输入正确的手机号！");
         return;
       }
-      if (!utli.isEmailAvailable(this.email)) {
+      if (!util.isEmailAvailable(this.email)) {
         Toast("请输入正确的邮箱！");
         return;
       }
