@@ -43,7 +43,7 @@ export default {
     Tab
   },
   created() {
-    let userData = localStorage.getItem("userData");
+    let userData = JSON.parse(localStorage.getItem("userData"));
     this.nick_name = userData.nickname;
     this.thumb_url = userData.headimgurl;
 

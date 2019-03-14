@@ -126,7 +126,7 @@ export default {
       getUserData(params).then(res => {
         console.log(res);
         let userData = res.data;
-        localStorage.setItem("userData", userData);
+        localStorage.setItem("userData", JSON.stringify(userData));
       });
     }
   }
