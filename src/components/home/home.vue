@@ -121,10 +121,12 @@ export default {
     },
     _getUserData() {
       let params = {
-        code: util.getUrlParam('code')
+        code: util.getUrlParam("code")
       };
       getUserData(params).then(res => {
         console.log(res);
+        let userData = res.data;
+        localStorage.setItem("userData", userData);
       });
     }
   }

@@ -43,12 +43,10 @@ export default {
     Tab
   },
   created() {
-    let params = {
-      code:'fsf13fds'
-    }
-    // loginWechat(params).then(res => {
-    //   console.log(res);
-    // });
+    let userData = localStorage.getItem("userData");
+    this.nick_name = userData.nickname;
+    this.thumb_url = userData.headimgurl;
+
   },
   methods: {
     clickOrder() {

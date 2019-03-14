@@ -7,6 +7,6 @@ import ajax from './ajax'
 export function getUserData(params) {
     const url = '/account/getAccessTokenFromMpWeb'
 
-    const data = Object.assign({}, params)
-    return ajax(url, data, 'post')
+    // const data = Object.assign({}, params)
+    return ajax(`${url}?code=${params.code}`, params, 'post')
 }
