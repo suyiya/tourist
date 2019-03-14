@@ -2,7 +2,7 @@
   <div>
     <div class="top">
       <div class="top-content">
-        <img :src="thumb_url" style="width:60px;height:60px;margin-right:16px;">
+        <img :src="thumb_url" style="width:60px;height:60px;margin-right:16px;border-radius:50%;">
         <div>
           <p class="f17 c-white">{{nick_name}}</p>
           <!-- <p class="f14 c-white">{{data.introduce}}</p> -->
