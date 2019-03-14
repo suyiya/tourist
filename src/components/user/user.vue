@@ -2,9 +2,9 @@
   <div>
     <div class="top">
       <div class="top-content">
-        <img :src="data.thumb_url" style="width:60px;height:60px;margin-right:16px;">
+        <img :src="thumb_url" style="width:60px;height:60px;margin-right:16px;">
         <div>
-          <p class="f17 c-white">{{data.nick_name}}</p>
+          <p class="f17 c-white">{{nick_name}}</p>
           <!-- <p class="f14 c-white">{{data.introduce}}</p> -->
         </div>
       </div>
@@ -32,11 +32,9 @@ export default {
   name: "User",
   data() {
     return {
-      data: {
         nick_name: "",
         thumb_url: require("@/assets/icon_zhuli.png"),
         introduce: ""
-      }
     };
   },
   components: {
@@ -44,7 +42,7 @@ export default {
   },
   created() {
     let userData = JSON.parse(localStorage.getItem("userData"));
-    console.log(userData)
+    // console.log(userData)
     this.nick_name = userData.nickname;
     this.thumb_url = userData.headimgurl;
 
