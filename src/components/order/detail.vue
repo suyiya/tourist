@@ -145,10 +145,10 @@ export default {
       });
     },
     _submitPayToWechat() {
-      let openId = localStorage.getItem("openId");
+      let openId = JSON.parse(localStorage.getItem("userData")).openid;
       let params = {
         orderId: this.data.id,
-        order_hashBODY: this.data.hashId,
+        order_hash: this.data.hashId,
         openId: openId
       };
       submitPayToWechat(params)
