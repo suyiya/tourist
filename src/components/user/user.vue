@@ -44,6 +44,7 @@ export default {
   },
   created() {
     let userData = JSON.parse(localStorage.getItem("userData"));
+    console.log(userData)
     this.nick_name = userData.nickname;
     this.thumb_url = userData.headimgurl;
 
