@@ -14,7 +14,7 @@
       </div>
       <div class="mt28">
         <div class="title-bar">
-          <p class="title">境外推荐</p>
+          <p class="title">推荐行程</p>
           <p class="more" @click="clickMore()">
             更多
             <img src="@/assets/btn_jiantou_xiao_lv.png">
