@@ -26,6 +26,11 @@
         <p>邮箱</p>
         <input type="text" v-model="email" placeholder="请输入邮箱">
       </div>
+      <div class="bor-bottom"></div>
+      <div class="cus-left">
+        <p>备注</p>
+        <input type="text" v-model="remark" placeholder="请输入备注">
+      </div>
     </div>
     <div class="footer">
       <div class="submit-bar">
@@ -83,7 +88,8 @@ export default {
         pcs: this.$route.query.amount,
         contact_name: this.name,
         contact_phone: this.phone,
-        contact_email: this.email
+        contact_email: this.email,
+        remark: this.remark
       };
       submitOrder(params).then(res => {
         console.log(res);

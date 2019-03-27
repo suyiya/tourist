@@ -31,6 +31,10 @@
         邮箱：
         <span>{{data.contact_email}}</span>
       </p>
+      <p class="content">
+        备注：
+        <span>{{data.contact_email}}</span>
+      </p>
     </div>
     <div class="order-info">
       <p class="title">订单信息</p>

@@ -51,6 +51,7 @@
       month-format="{value} 月"
       date-format="{value} 日"
       :startDate="startDate"
+      :endDate="endDate"
       @confirm="handleConfirm"
     ></mt-datetime-picker>
   </div>
@@ -65,13 +66,14 @@ export default {
       pickerVisible: false,
       dateVal: new Date(),
       startDate: new Date(),
+      endDate: new Date(new Date().getTime() + 1000 * 60 * 60 * 24 * 365),
       time: new Date().format("YYYY-MM-dd"),
       peopleType: 1,
       amount: 1,
       packageIndex: 0,
       totalPrice: 0,
       travelProductPriceList: [],
-      currency:''
+      currency: ""
     };
   },
   created() {
@@ -94,7 +96,10 @@ export default {
       getTravelProductAllPrice(params).then(res => {
         let travelProductPriceList = res.data.travelProductPriceList || [];
         this.travelProductPriceList = travelProductPriceList;
-        this.currency = travelProductPriceList.length>0 ? travelProductPriceList[0].currency : '';
+        this.currency =
+          travelProductPriceList.length > 0
+            ? travelProductPriceList[0].currency
+            : "";
         for (let i = 0; i < this.travelProductPriceList.length; i++) {
           let travel = this.travelProductPriceList[i];
           if (travel.is_default == 1) {
