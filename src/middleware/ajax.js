@@ -25,9 +25,11 @@ export default function ajax(url, data, type) {
         //  res返回的code不为 0 的 时候，说明你的请求有问题，这里和我们的主题没太大关系
         if (res.code == 200) {
           resolve(res)
-        } else if (res.code == 4000 || res.code == 4001) {
-          window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx64e1ff07ad41344f&redirect_uri=http%3A%2F%2Ftest.mp.socialgolf.cn%2Findex.html%23%2F&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
-        } else {
+        } 
+        // else if (res.code == 4000 || res.code == 4001) {
+        //   window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx64e1ff07ad41344f&redirect_uri=http%3A%2F%2Ftest.mp.socialgolf.cn%2Findex.html%23%2F&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
+        // } 
+        else {
           reject(res)
         }
       },
