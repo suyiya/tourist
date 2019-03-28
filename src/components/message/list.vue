@@ -12,6 +12,7 @@
           <message-item v-for="item in message_list" :key="item.Id" :data="item"/>
         </div>
       </mt-loadmore>
+      <div class="tac" v-if="travelProductList.length<1">暂时没有相关信息</div>
     </div>
     <tab :tabIndex="2"></tab>
   </div>
