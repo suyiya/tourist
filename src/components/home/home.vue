@@ -73,8 +73,6 @@ export default {
     DistrictItem
   },
   created() {
-    this._getTravelProductList();
-    this._getTravelProductListNotCn();
     this._getUserData();
   },
   mounted() {},
@@ -129,6 +127,8 @@ export default {
         let access_token = res.data.access_token;
         localStorage.setItem("userData", JSON.stringify(userData));
         localStorage.setItem("access_token", access_token);
+        this._getTravelProductList();
+        this._getTravelProductListNotCn();
       });
     }
   }
