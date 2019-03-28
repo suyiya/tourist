@@ -8,7 +8,7 @@ import ajax from './ajax'
  * relate_with 1 与球局订单关联 2 与球局产品关联
  */
 export function getMessage(params) {
-    const url = '/msg/getMessag'
+    const url = '/msg/getTravelMessage'
 
     const data = Object.assign({}, params)
     return ajax(url, data)

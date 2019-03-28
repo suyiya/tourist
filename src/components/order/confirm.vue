@@ -29,14 +29,14 @@
       <div class="bor-bottom"></div>
       <div class="cus-left">
         <p>备注</p>
-        <input type="text" v-model="remark" placeholder="请输入备注">
+        <input type="text" v-model="memo" placeholder="请输入备注">
       </div>
     </div>
     <div class="footer">
       <div class="submit-bar">
         <div class="submit-price">
-          <p class="text1">总价</p>
-          <p class="c-green text2">{{query.currency}} {{query.price * query.amount}}</p>
+          <p class="text1">预付价</p>
+          <p class="c-green text2">{{query.currency}} {{query.price * query.amount * 0.1}}</p>
         </div>
         <div class="bg-green submit-btn" @click="submit()">提交订单</div>
       </div>
@@ -89,7 +89,7 @@ export default {
         contact_name: this.name,
         contact_phone: this.phone,
         contact_email: this.email,
-        remark: this.remark
+        memo: this.memo
       };
       submitOrder(params).then(res => {
         console.log(res);
