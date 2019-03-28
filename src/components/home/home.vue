@@ -126,7 +126,9 @@ export default {
       getUserData(params).then(res => {
         console.log(res);
         let userData = res.data;
+        let access_token = res.data.access_token;
         localStorage.setItem("userData", JSON.stringify(userData));
+        localStorage.setItem("access_token", access_token);
       });
     }
   }

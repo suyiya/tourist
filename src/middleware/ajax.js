@@ -1,6 +1,7 @@
 // const host = 'http://47.97.198.242:8088';
 const host = 'http://test.mp.socialgolf.cn:8088';
 export default function ajax(url, data, type) {
+  let access_token = localStorage.getItem("access_token") || "";
   return new Promise((resolve, reject) => {
     $.ajax({
       //  请求方式 默认是get
@@ -19,7 +20,7 @@ export default function ajax(url, data, type) {
       crossDomain: true,
       dataType: 'json', //默认是json
       headers: {
-        Authorization: '40e14b06d0c32e636c2b1ddcd4915c4945d8f7bb'
+        Authorization: access_token
       },
       success: function (res) {
         //  res返回的code不为 0 的 时候，说明你的请求有问题，这里和我们的主题没太大关系
