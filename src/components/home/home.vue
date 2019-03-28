@@ -74,6 +74,8 @@ export default {
   },
   created() {
     this._getUserData();
+    this._getTravelProductList();
+    this._getTravelProductListNotCn();
   },
   mounted() {},
   methods: {
@@ -127,8 +129,6 @@ export default {
         let access_token = res.data.access_token;
         localStorage.setItem("userData", JSON.stringify(userData));
         localStorage.setItem("access_token", access_token);
-        this._getTravelProductList();
-        this._getTravelProductListNotCn();
       });
     }
   }
