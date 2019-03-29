@@ -12,7 +12,7 @@
           <message-item v-for="item in message_list" :key="item.Id" :data="item"/>
         </div>
       </mt-loadmore>
-      <div class="tac" v-if="travelProductList.length<1">暂时没有相关信息</div>
+      <div class="tac" v-if="message_list.length<1">暂时没有相关信息</div>
     </div>
     <tab :tabIndex="2"></tab>
   </div>
@@ -93,5 +93,8 @@ export default {
 }
 .message-list {
   padding: 0px 16px;
+}
+.tac {
+  text-align: center;
 }
 </style>
