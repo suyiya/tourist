@@ -19,7 +19,7 @@ export default function ajax(url, data, type) {
       crossDomain: true,
       dataType: 'json', //默认是json
       headers: {
-        Authorization: localStorage.getItem("access_token") || ""
+        Authorization: localStorage.getItem("token") || ""
       },
       success: function (res) {
         //  res返回的code不为 0 的 时候，说明你的请求有问题，这里和我们的主题没太大关系
