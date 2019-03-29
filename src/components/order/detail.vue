@@ -33,7 +33,7 @@
       </p>
       <p class="content">
         备注：
-        <span>{{data.contact_email}}</span>
+        <span>{{data.memo}}</span>
       </p>
     </div>
     <div class="order-info">
