@@ -55,6 +55,7 @@ export default {
       name: "",
       phone: "",
       email: "",
+      memo: "",
       query: this.$route.query
     };
   },

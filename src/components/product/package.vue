@@ -36,8 +36,14 @@
     <div class="footer">
       <div class="submit-bar">
         <div class="submit-price">
-          <p class="text1">总价</p>
-          <p class="c-green text2">{{currency}} {{totalPrice}}</p>
+          <p class="text1">
+            总 价：
+            <span class="c-green">{{currency}} {{totalPrice}}</span>
+          </p>
+          <p class="text1">
+            预定价：
+            <span class="c-green">{{currency}} {{totalPrice * 0.1}}</span>
+          </p>
         </div>
         <div class="bg-green submit-btn" @click="submit()">立即预定</div>
       </div>
@@ -140,9 +146,19 @@ export default {
       this.totalPrice = price * this.amount;
     },
     submit() {
+      // this.$router.push({
+      //   path: "/productDetail",
+      //   query: {
+      //     ...this.travelProductPriceList[this.packageIndex],
+      //     amount: this.amount,
+      //     time: this.time,
+      //     id: this.$route.query.id
+      //   }
+      // });
       this.$router.push({
-        path: "/productDetail",
+        path: "/orderConfirm",
         query: {
+          ...this.$route.query,
           ...this.travelProductPriceList[this.packageIndex],
           amount: this.amount,
           time: this.time,

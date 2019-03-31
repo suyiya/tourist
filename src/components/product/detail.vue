@@ -36,14 +36,14 @@
         <!-- <div class="con-title">
           <div class="longLine"></div>
           <div>详情介绍</div>
-        </div> -->
+        </div>-->
         <div v-html="data.introduce"></div>
       </div>
       <div class="container" v-if="introIndex!=0">
         <!-- <div class="con-title">
           <div class="longLine"></div>
           <div>预定须知</div>
-        </div> -->
+        </div>-->
         <div v-html="data.exceptions"></div>
       </div>
     </div>
@@ -157,7 +157,11 @@ export default {
       } else {
         this.$router.push({
           path: "/productPackage",
-          query: this.$route.query
+          query: {
+            ...this.$route.query,
+            imageUrl: this.data.main_thumb_urls,
+            title: this.data.title
+          }
         });
       }
     },
