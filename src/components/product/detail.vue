@@ -171,7 +171,11 @@ export default {
     goPackage() {
       this.$router.push({
         path: "/productPackage",
-        query: this.$route.query
+        query: {
+          ...this.$route.query,
+          imageUrl: this.data.main_thumb_urls,
+          title: this.data.title
+        }
       });
     },
     /**
