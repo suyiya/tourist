@@ -153,7 +153,8 @@ export default {
       let params = {
         orderId: this.data.id,
         order_hash: this.data.hashId,
-        openId: openId
+        openId: openId,
+        payFrom: "h5"
       };
       submitPayToWechat(params)
         .then(res => {
