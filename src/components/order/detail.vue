@@ -187,13 +187,13 @@ export default {
           appId: appId, //公众号ID
           timeStamp: data.timestamp, //时间戳，当前系统的时间，具体格式，请看API
           nonceStr: data.nonce_str, //随机串，具体格式请看API
-          package: data.prepay_id, //扩展包
+          package: "prepay_id=" + data.prepay_id, //扩展包
           signType: "MD5", //微信签名方式:sha1
           paySign: data.pay_sign //微信签名
         },
         function(res) {
           if (res.err_msg == "get_brand_wcpay_request:ok") {
-            alert('成功')
+            alert("成功");
           }
           // 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg将在用户支付成功后返回ok，但并不保证它绝对可靠。
           //因此微信团队建议，当收到ok返回时，向商户后台询问是否收到交易成功的通知，若收到通知，前端展示交易成功的界面；若此时未收到通知，商户后台主动调用查询订单接口，查询订单的当前状态，并反馈给前端展示相应的界面。
