@@ -36,7 +36,9 @@
       <div class="submit-bar">
         <div class="submit-price">
           <p class="text1">预付价</p>
-          <p class="c-green text2">{{query.currency}} {{query.price * query.amount * 0.1}}</p>
+          <p
+            class="c-green text2"
+          >{{query.currency}} {{(query.price * query.amount * 0.1).toFixed(2)}}</p>
         </div>
         <div class="bg-green submit-btn" @click="submit()">提交订单</div>
       </div>

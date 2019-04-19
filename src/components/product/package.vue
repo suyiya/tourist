@@ -42,7 +42,7 @@
           </p>
           <p class="text1">
             预定价：
-            <span class="c-green">{{currency}} {{totalPrice * 0.1}}</span>
+            <span class="c-green">{{currency}} {{(totalPrice * 0.1).toFixed(2)}}</span>
           </p>
         </div>
         <div class="bg-green submit-btn" @click="submit()">立即预定</div>
