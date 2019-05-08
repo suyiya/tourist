@@ -119,6 +119,11 @@ const webpackConfig = merge(baseWebpackConfig, {
         from: path.resolve(__dirname, '../MP_verify_l0FW8C0Ifmso2T60.txt'),
         to: config.build.assetsRoot,
         flatten: true
+      },
+      {
+        from: path.resolve(__dirname, '../yAznOj0FhM.txt'),
+        to: config.build.assetsRoot,
+        flatten: true
       }
     ])
   ]
