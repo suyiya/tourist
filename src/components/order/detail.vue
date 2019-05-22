@@ -110,8 +110,11 @@ export default {
     },
 
     //跳转到小程序
-    navigateToMiniProgram: function(payParam) {
-      const url = "/pages/wxPay/wxPay?payParam=" + encodeURIComponent(payParam);
+    navigateToMiniProgram: function() {
+      let openId = JSON.parse(localStorage.getItem("userData")).openid;
+      let orderId = this.data.id;
+      let order_hash = this.data.hashId;
+      const url = `/pages/payment/payment?openId=${openId}&orderId=${orderId}&order_hash=${order_hash}`;
       // alert("url:" + url);
       wx.miniProgram.navigateTo({
         url: url
@@ -122,18 +125,7 @@ export default {
       let isMiniProgram = localStorage.getItem("isMiniProgram");
       console.log("去支付", isMiniProgram);
       if (isMiniProgram == 1) {
-        // alert('小程序')
-        //由后台协商好返回的数据格式，该代码仅供参考，不能实际使用
-        const payParam = {
-          appId: appId,
-          nonceStr: "5K8264ILTKCH16CQ2502SI8ZNMTM67VS",
-          package: "prepay_id=wx2017033010242291fcfe0db70013231072",
-          signType: "MD5",
-          timeStamp: "1490840662",
-          paySign: "BB2B9BD3F2F8A1CB270C6ACE3D7BDB9"
-        };
-        // alert(payParam);
-        this.navigateToMiniProgram(JSON.stringify(payParam));
+        this.navigateToMiniProgram();
       } else {
         // alert("公众号");
         this._submitPayToWechat();
