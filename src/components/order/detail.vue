@@ -111,10 +111,10 @@ export default {
 
     //跳转到小程序
     navigateToMiniProgram: function() {
-      let openId = JSON.parse(localStorage.getItem("userData")).openid;
+      // let openId = JSON.parse(localStorage.getItem("userData")).openid;
       let orderId = this.data.id;
       let order_hash = this.data.hashId;
-      const url = `/pages/payment/payment?openId=${openId}&orderId=${orderId}&order_hash=${order_hash}`;
+      const url = `/pages/payment/payment?orderId=${orderId}&order_hash=${order_hash}`;
       // alert("url:" + url);
       wx.miniProgram.navigateTo({
         url: url
