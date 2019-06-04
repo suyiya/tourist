@@ -1,7 +1,11 @@
 // const host = 'http://47.97.198.242:8088';
-const host = 'http://test.mp.socialgolf.cn:8088';
+const host = 'https://api.socialgolf.cn';
 export default function ajax(url, data, type) {
   return new Promise((resolve, reject) => {
+    let token = util.getUrlParam("token");
+    if (!token) {
+      token = localStorage.getItem("token");
+    }
     $.ajax({
       //  请求方式 默认是get
       type: type || 'get',
@@ -19,13 +23,13 @@ export default function ajax(url, data, type) {
       crossDomain: true,
       dataType: 'json', //默认是json
       headers: {
-        Authorization: localStorage.getItem("token") || ""
+        Authorization: token || ""
       },
       success: function (res) {
         //  res返回的code不为 0 的 时候，说明你的请求有问题，这里和我们的主题没太大关系
         if (res.code == 200) {
           resolve(res)
-        } 
+        }
         // else if (res.code == 4000 || res.code == 4001) {
         //   window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx64e1ff07ad41344f&redirect_uri=http%3A%2F%2Ftest.mp.socialgolf.cn%2Findex.html%23%2F&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
         // } 
