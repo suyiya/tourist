@@ -24,7 +24,7 @@ window.util = {
      * 邮箱验证
      */
     isEmailAvailable: (value) => {
-        var reg = /^([a-zA-Z]|[0-9])(\w|\-)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
+        var reg = /^(\w-*\.*)+@(\w-?)+(\.\w{2,})+$/;
         if (!reg.test(value)) {
             return false;
         } else {
