@@ -37,6 +37,7 @@
         </div>
       </div>
     </div>
+    <record-bar/>
     <tab :tabIndex="1"></tab>
   </div>
 </template>
@@ -44,6 +45,7 @@
 <script>
 import Tab from "@/components/tab/tab";
 import InfoSmall from "@/base/info-small";
+import RecordBar from "@/base/record-bar";
 import DistrictItem from "@/base/district-item";
 import { Indicator } from "mint-ui";
 import {
@@ -70,7 +72,8 @@ export default {
   components: {
     Tab,
     InfoSmall,
-    DistrictItem
+    DistrictItem,
+    RecordBar
   },
   created() {
     this._getUserData();

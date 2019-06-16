@@ -14,6 +14,7 @@
       </mt-loadmore>
       <div class="tac" v-if="message_list.length<1">暂时没有相关信息</div>
     </div>
+    <record-bar />
     <tab :tabIndex="2"></tab>
   </div>
 </template>
@@ -21,6 +22,7 @@
 <script>
 import MessageItem from "@/base/message-item";
 import Tab from "@/components/tab/tab";
+import RecordBar from "@/base/record-bar";
 import { getMessage } from "@/middleware/message";
 import { Toast } from "mint-ui";
 export default {
@@ -81,7 +83,8 @@ export default {
   },
   components: {
     MessageItem,
-    Tab
+    Tab,
+    RecordBar
   }
 };
 </script>

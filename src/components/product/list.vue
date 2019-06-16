@@ -11,11 +11,13 @@
       </div>
     </mt-loadmore>
     <div class="tac" v-if="travelProductList.length<1">暂时没有相关信息</div>
+    <record-bar/>
   </div>
 </template>
 
 <script>
 import InfoBig from "@/base/info-big";
+import RecordBar from "@/base/record-bar";
 import {
   getTravelProductList,
   getTravelProductListNotCn
@@ -31,7 +33,8 @@ export default {
     };
   },
   components: {
-    InfoBig
+    InfoBig,
+    RecordBar
   },
   created() {
     let windowWidth = document.documentElement.clientWidth; //获取屏幕宽度

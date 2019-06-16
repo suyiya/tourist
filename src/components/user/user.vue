@@ -21,12 +21,14 @@
         <img src="@/assets/btn_jiantou_xiao.png">
       </div>
     </div>
+    <record-bar />
     <tab :tabIndex="3"></tab>
   </div>
 </template>
 
 <script>
 import Tab from "@/components/tab/tab";
+import RecordBar from "@/base/record-bar";
 // import { loginWechat } from "@/middleware/user";
 export default {
   name: "User",
@@ -38,7 +40,8 @@ export default {
     };
   },
   components: {
-    Tab
+    Tab,
+    RecordBar
   },
   created() {
     let userData = JSON.parse(localStorage.getItem("userData"));
@@ -97,6 +100,7 @@ export default {
   padding-left: 16px;
   padding-right: 16px;
   margin-top: 10px;
+  margin-bottom: 200px;
 }
 .bottom .item {
   height: 52px;

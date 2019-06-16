@@ -53,6 +53,7 @@
         <span>在线支付</span>
       </p>
     </div>
+    <record-bar/>
     <div class="blank"></div>
     <div class="footer bg-white" v-if="data.status!=2">
       <div class="botton bg-green" @click="submit()">{{data.status==0?'去支付':'去点评'}}</div>
@@ -62,6 +63,7 @@
 
 <script>
 import InfoBar from "@/base/info-bar";
+import RecordBar from "@/base/record-bar";
 import { getTravelOrderInfo, submitPayToWechat } from "@/middleware/order";
 import wx from "weixin-js-sdk";
 import { appId } from "@/common/utility/constant";
@@ -88,7 +90,8 @@ export default {
     }
   },
   components: {
-    InfoBar
+    InfoBar,
+    RecordBar
   },
   created() {
     this._getTravelOrderInfo();

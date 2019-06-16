@@ -33,6 +33,7 @@
         <div @click="add()">+</div>
       </div>
     </div>
+    <record-bar/>
     <div class="footer">
       <div class="submit-bar">
         <div class="submit-price">
@@ -65,6 +66,7 @@
 
 <script>
 import { getTravelProductAllPrice } from "@/middleware/product";
+import RecordBar from "@/base/record-bar";
 export default {
   name: "Package",
   data() {
@@ -81,6 +83,9 @@ export default {
       travelProductPriceList: [],
       currency: ""
     };
+  },
+  components: {
+    RecordBar
   },
   created() {
     this._getTravelProductAllPrice();
@@ -257,6 +262,7 @@ export default {
   align-items: center;
   padding-left: 16px;
   padding-right: 16px;
+  margin-bottom: 100px;
 }
 .amount div:nth-child(1) {
   font-size: 17px;

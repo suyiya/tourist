@@ -27,11 +27,13 @@
         </div>
       </mt-loadmore>
     </div>
+    <record-bar/>
   </div>
 </template>
 
 <script>
 import OrderItem from "@/base/order-item";
+import RecordBar from "@/base/record-bar";
 import { getOrderList } from "@/middleware/order";
 import { Loadmore } from "mint-ui";
 export default {
@@ -55,7 +57,8 @@ export default {
   },
   components: {
     OrderItem,
-    Loadmore
+    Loadmore,
+    RecordBar
   },
   methods: {
     changeNav(index) {

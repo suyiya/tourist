@@ -32,6 +32,7 @@
         <input type="text" v-model="memo" placeholder="请输入备注">
       </div>
     </div>
+    <record-bar />
     <div class="footer">
       <div class="submit-bar">
         <div class="submit-price">
@@ -48,6 +49,7 @@
 
 <script>
 import InfoBar from "@/base/info-bar";
+import RecordBar from "@/base/record-bar";
 import { Toast } from "mint-ui";
 import { submitOrder } from "@/middleware/order";
 export default {
@@ -106,7 +108,8 @@ export default {
     }
   },
   components: {
-    InfoBar
+    InfoBar,
+    RecordBar
   }
 };
 </script>
@@ -118,6 +121,7 @@ export default {
   display: flex;
   flex-direction: column;
   padding: 10px 0 0 16px;
+  margin-bottom: 70px;
 }
 .submit-bar {
   display: flex;

@@ -46,6 +46,7 @@
         </div>-->
         <div v-html="data.exceptions"></div>
       </div>
+      <record-bar/>
     </div>
     <div class="footer bg-white">
       <div class="botton bg-green" @click="reserve()">立即预定</div>
@@ -57,6 +58,7 @@
 import { getTravelProductInfo } from "@/middleware/product";
 import { getTravelProductComments } from "@/middleware/comment";
 import { Indicator } from "mint-ui";
+import RecordBar from "@/base/record-bar";
 export default {
   name: "ProductDetail",
   data() {
@@ -79,6 +81,9 @@ export default {
       },
       data: {}
     };
+  },
+  components: {
+    RecordBar
   },
   created() {
     this._getTravelProductInfo();
